@@ -1,0 +1,24 @@
+{
+  "name": "element_generator",
+  "version": "1.0.0",
+  "description": "A website to model the formation of elements in the early universe",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AakashSudhakar/element_generator.git"
+  },
+  "author": "Tuff Pesty Artists",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AakashSudhakar/element_generator/issues"
+  },
+  "homepage": "https://github.com/AakashSudhakar/element_generator#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0"
+  }
+}
