@@ -1,5 +1,5 @@
 # Element Generator
-##### Education Simulator for Basic Chemistry
+### Education Simulator for Basic Chemistry
 
 ## CORE CONCEPT
 
