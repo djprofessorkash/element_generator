@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Hydrogen",
+    "abbrv": "H",
+    "protons": 1
+  },
+  {
+    "name": "Helium",
+    "abbrv": "He",
+    "protons": 2
+  },
+  {
+    "name": "Lithium",
+    "abbrv": "Li",
+    "protons": 3
+  },
+  {
+    "name": "Beryllium",
+    "abbrv": "Be",
+    "protons": 4
+  },
+  {
+    "name": "Boron",
+    "abbrv": "B",
+    "protons": 5
+  },
+  {
+    "name": "Carbon",
+    "abbrv": "C",
+    "protons": 6
+  }
+]
