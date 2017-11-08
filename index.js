@@ -1,6 +1,13 @@
+//**** dependencies ****//
 const express = require('express');
 const app = express();
 const hb = require('express-handlebars');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 // set up handlebars
 app.engine('handlebars', hb({defaultLayout: 'main'}));
