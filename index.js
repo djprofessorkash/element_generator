@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const hb = require('express-handlebars');
 
+// set up handlebars
+app.engine('handlebars', hb({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 const elementsArray = require('./elements.json');
 
 var createElement = (elements) => {
@@ -35,7 +39,7 @@ app.get('/', function(req, res) {
   }
   var elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
   createElement(elementsToCombine);
-  res.send('Element Generator');
+  res.render('home');
 })
 
 var PORT = process.env.PORT || 3000;
