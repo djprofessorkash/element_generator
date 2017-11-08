@@ -34,9 +34,7 @@ var checkAuth = function (req, res, next) {
     var token = req.cookies.nToken;
     var decodedToken = jwt.decode(token, { complete: true }) || {};
     req.user = decodedToken.payload;
-    //console.log(req.user);
   }
-  // console.log(req.user);
   next();
 }
 app.use(checkAuth);
@@ -82,6 +80,9 @@ app.get('/', function(req, res) {
   var newElement = createElement(elementsToCombine);
   res.render('home', {element: 'Hydrogen'});
 })
+
+// authentication controller
+require('./auth.js')(app);
 
 var PORT = process.env.PORT || 3000;
 
