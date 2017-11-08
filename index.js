@@ -72,13 +72,22 @@ var getElementByAbbrv = (elementAbbrv) => {
   }
 }
 
+var getElementByName= (elementName) => {
+  for (let i = 0; i < elementsArray.length; i++) {
+    if (elementsArray[i].name == elementName) {
+      console.log(elementsArray[i])
+      return elementsArray[i];
+    }
+  }
+}
+
 app.get('/', function(req, res) {
   for (let i = 0; i < elementsArray.length; i++) {
     console.log(elementsArray[i]);
   }
   var elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
   var newElement = createElement(elementsToCombine);
-  res.render('home', {element: 'Hydrogen', currentUser: req.user});
+  res.render('home', {element: 'Hydrogen', element2: 'Hydrogen', currentUser: req.user});
 })
 
 // authentication controller
