@@ -26,11 +26,11 @@ module.exports = function(app) {
   });
 
   app.get('/login', function(req, res) {
-    res.redirect('/')
+    res.redirect('/');
   })
 
   app.get('/sign-up', function(req, res) {
-    res.redirect('/')
+    res.redirect('/');
   })
 
   app.get('/profile', function(req, res) {
