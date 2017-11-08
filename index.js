@@ -13,7 +13,7 @@ var createElement = (elements) => {
   for (let i = 0; i < elements.length; i++) {
     totalProtons += elements[i].protons;
   }
-  console.log('You just made: ' + getElementByProtonNumber(totalProtons).name)
+  return getElementByProtonNumber(totalProtons).name;
 }
 
 var getElementByProtonNumber = (protonNumber) => {
@@ -38,8 +38,8 @@ app.get('/', function(req, res) {
     console.log(elementsArray[i]);
   }
   var elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
-  createElement(elementsToCombine);
-  res.render('home');
+  var newElement = createElement(elementsToCombine);
+  res.render('home', {element: 'Hydrogen'});
 })
 
 var PORT = process.env.PORT || 3000;
