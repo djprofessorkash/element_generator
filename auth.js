@@ -33,6 +33,10 @@ module.exports = function(app) {
     res.redirect('/')
   })
 
+  app.get('/profile', function(req, res) {
+    res.render('profile');
+  })
+
   // sign-up
   app.post('/sign-up', function(req, res, next) {
     // create User and JWT
