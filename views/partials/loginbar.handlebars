@@ -1,0 +1,11 @@
+{{#if currentUser}}
+<div class="login">
+  <button class="btn-flat" onclick="location.href = '/profile'; return false;"> My Progress</button>
+  <button class="btn-flat" onclick="location.href = '/logout'; return false;"> Logout</button>
+</div>
+{{else}}
+  <form class="login">
+    <button class="btn-flat modal-trigger" data-target="modalL"> Login </button>
+    <button class="btn-flat modal-trigger" data-target="modalS" style="margin-right: 10px;"> Sign Up </button>
+  </form>
+{{/if}}

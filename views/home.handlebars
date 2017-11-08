@@ -1,8 +1,30 @@
 <header>
-  <h1> Element Generator </h1>
+  {{>loginbar }}
 </header>
 
 <main>
-  <p> {{element}} </p> 
+  <p> {{element}} </p>
   <button> React! </button>
 </main>
+
+
+<!-- Modal Structure -->
+<div id="modalL" class="modal">
+  <form class="modal-content" method="post" action="/login">
+    <input name="username" placeholder="username"/>
+    <input name="password" type="password" placeholder="password"/>
+    <div class="modal-footer">
+      <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Log In</button>
+    </div>
+  </form>
+</div>
+<!-- Modal Structure -->
+<div id="modalS" class="modal">
+  <form class="modal-content" method="post" action="/sign-up">
+    <input name="username" placeholder="username"/>
+    <input name="password" type="password" placeholder="password"/>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Sign Up</button>
+  </div>
+  </form>
+</div>
