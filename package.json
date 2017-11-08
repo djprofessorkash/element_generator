@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/AakashSudhakar/element_generator#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "express": "^4.16.2",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "jsonwebtoken": "^8.1.0"
   }
 }
