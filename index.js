@@ -9,9 +9,43 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+//**** middleware ****//
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(express.static('public'));
+
 // set up handlebars
 app.engine('handlebars', hb({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+// user database model
+var User = require('./user-model');
+
+// check that a user is logged in
+var checkAuth = function (req, res, next) {
+  //console.log("Checking authentication");
+  // make sure the user has a JWT cookie
+  if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
+    req.user = null;
+    //console.log("no user");
+  } else {
+    // if the user has a JWT cookie, decode it and set the user
+    var token = req.cookies.nToken;
+    var decodedToken = jwt.decode(token, { complete: true }) || {};
+    req.user = decodedToken.payload;
+    //console.log(req.user);
+  }
+  // console.log(req.user);
+  next();
+}
+app.use(checkAuth);
+
+/***** set up mongoose *****/
+mongoose.promise = global.promise;
+mongoose.connect('mongodb://heroku_1kx55dgr:6bisnk21n4op7sprqve5ji6s88@ds149905.mlab.com:49905/heroku_1kx55dgr');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
 
