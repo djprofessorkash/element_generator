@@ -78,7 +78,7 @@ app.get('/', function(req, res) {
   }
   var elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
   var newElement = createElement(elementsToCombine);
-  res.render('home', {element: 'Hydrogen'});
+  res.render('home', {element: 'Hydrogen', currentUser: req.user});
 })
 
 // authentication controller
