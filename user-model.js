@@ -8,6 +8,8 @@ var UserSchema = new Schema({
   , password        : { type: String, select: false }
   , username        : { type: String, required: true }
   , points          : { type: Number}
+  , unlockedElements : []
+  ,  combinationsTried : [[]]
 });
 
 UserSchema.pre('save', function(next){
