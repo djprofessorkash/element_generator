@@ -84,18 +84,23 @@ var getElementByName = (elementName) => {
 }
 
 app.get('/', function(req, res) {
-
   var elementsToCombine;
   if (req.user) {
     console.log("user " + req.user);
-    elementsToCombine = req.user.unlockedElements;
-    console.log(elementsToCombine);
+    User.findById(req.user.id).exec().then((user) => {
+        elementsToCombine = user.unlockedElements;
+        if (!elementsToCombine || elementsToCombine.length == 0) {
+          var h = getElementByAbbrv('H');
+          elementsToCombine = [h, h];
+        }
+        console.log(elementsToCombine);
+        res.render('home', {elements: elementsToCombine, currentUser: req.user});
+    })
   } else {
     elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
     var newElement = createElement(elementsToCombine);
+    res.render('home', {elements: elementsToCombine, currentUser: req.user});
   }
-
-  res.render('home', {elements: elementsToCombine, currentUser: req.user});
 })
 
 // authentication controller

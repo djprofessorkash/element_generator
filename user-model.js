@@ -23,10 +23,6 @@ UserSchema.pre('save', function(next){
     this.createdAt = now;
   }
 
-  // initialize the unlocked elements
-  this.unlockedElements.push('H');
-  this.unlockedElements.push('H');
-
   // ENCRYPT PASSWORD
   var user = this;
   if (!user.isModified('password')) {
