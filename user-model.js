@@ -9,7 +9,7 @@ var UserSchema = new Schema({
   , username        : { type: String, required: true }
   , points          : { type: Number}
   , unlockedElements : []
-  ,  combinationsTried : [[]]
+  , combinationsTried : [[]]
 });
 
 UserSchema.pre('save', function(next){
@@ -22,6 +22,10 @@ UserSchema.pre('save', function(next){
   if ( !this.createdAt ) {
     this.createdAt = now;
   }
+
+  // initialize the unlocked elements
+  this.unlockedElements.push('H');
+  this.unlockedElements.push('H');
 
   // ENCRYPT PASSWORD
   var user = this;

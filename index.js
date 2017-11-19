@@ -22,6 +22,8 @@ app.set('view engine', 'handlebars');
 // user database model
 var User = require('./user-model');
 
+var elementsToCombine = ['H', 'H'];
+
 // check that a user is logged in
 var checkAuth = function (req, res, next) {
   //console.log("Checking authentication");
@@ -66,28 +68,34 @@ var getElementByProtonNumber = (protonNumber) => {
 var getElementByAbbrv = (elementAbbrv) => {
   for (let i = 0; i < elementsArray.length; i++) {
     if (elementsArray[i].abbrv == elementAbbrv) {
-      console.log(elementsArray[i])
+      //console.log(elementsArray[i])
       return elementsArray[i];
     }
   }
 }
 
-var getElementByName= (elementName) => {
+var getElementByName = (elementName) => {
   for (let i = 0; i < elementsArray.length; i++) {
     if (elementsArray[i].name == elementName) {
-      console.log(elementsArray[i])
+      //console.log(elementsArray[i])
       return elementsArray[i];
     }
   }
 }
 
 app.get('/', function(req, res) {
-  for (let i = 0; i < elementsArray.length; i++) {
-    console.log(elementsArray[i]);
+
+  var elementsToCombine;
+  if (req.user) {
+    console.log("user " + req.user);
+    elementsToCombine = req.user.unlockedElements;
+    console.log(elementsToCombine);
+  } else {
+    elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
+    var newElement = createElement(elementsToCombine);
   }
-  var elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
-  var newElement = createElement(elementsToCombine);
-  res.render('home', {element: 'Hydrogen', element2: 'Hydrogen', currentUser: req.user});
+
+  res.render('home', {elements: elementsToCombine, currentUser: req.user});
 })
 
 // authentication controller

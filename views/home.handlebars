@@ -3,7 +3,11 @@
 </header>
 
 <main>
-  <p> {{element}} + {{element2}} </p>
+  <p>
+    {{#each elements}}
+      {{this.name}} {{#unless @last}} + {{/unless}}
+    {{/each}}
+  </p>
   <button> React! </button>
 </main>
 
