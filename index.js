@@ -19,10 +19,19 @@ app.use(express.static('public'));
 app.engine('handlebars', hb({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+var hbs = hb.create({
+  helpers: {
+    newElement: function(elements) {
+      console.log("calling helper");
+      var el = createElement(elements); // returns string (name)
+      console.log(el);
+      return el;
+    }
+  }
+})
+
 // user database model
 var User = require('./user-model');
-
-var elementsToCombine = ['H', 'H'];
 
 // check that a user is logged in
 var checkAuth = function (req, res, next) {
@@ -84,11 +93,9 @@ var getElementByName = (elementName) => {
 }
 
 app.get('/', function(req, res) {
-  var elementsToCombine;
   if (req.user) {
-    console.log("user " + req.user);
     User.findById(req.user.id).exec().then((user) => {
-        elementsToCombine = user.unlockedElements;
+        var elementsToCombine = user.unlockedElements;
         if (!elementsToCombine || elementsToCombine.length == 0) {
           var h = getElementByAbbrv('H');
           elementsToCombine = [h, h];
@@ -97,7 +104,8 @@ app.get('/', function(req, res) {
         res.render('home', {elements: elementsToCombine, currentUser: req.user});
     })
   } else {
-    elementsToCombine = [getElementByAbbrv('H'), getElementByAbbrv('H')];
+    var h = getElementByAbbrv('H');
+    elementsToCombine = [h, h];
     var newElement = createElement(elementsToCombine);
     res.render('home', {elements: elementsToCombine, currentUser: req.user});
   }
