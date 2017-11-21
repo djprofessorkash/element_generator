@@ -2,7 +2,7 @@ var bodyParser = require('body-parser');
 var User = require('./user-model');
 var jwt = require('jsonwebtoken');
 
-module.exports = function(app) {
+module.exports = (app) => {
 
   // post login
   app.post('/login', function(req, res, next) {
@@ -20,29 +20,29 @@ module.exports = function(app) {
   });
 
   // logout
-  app.get('/logout', function(req, res) {
+  app.get('/logout', (req, res) => {
     res.clearCookie('nToken');
     res.redirect('/');
   });
 
-  app.get('/login', function(req, res) {
+  app.get('/login', (req, res) => {
     res.redirect('/');
   })
 
-  app.get('/sign-up', function(req, res) {
+  app.get('/sign-up', (req, res) => {
     res.redirect('/');
   })
 
-  app.get('/profile', function(req, res) {
+  app.get('/profile', (req, res) => {
     res.render('profile');
   })
 
   // sign-up
-  app.post('/sign-up', function(req, res, next) {
+  app.post('/sign-up', (req, res, next) => {
     // create User and JWT
     var user = new User(req.body);
 
-    user.save(function (err) {
+    user.save((err) => {
       if (err) {
         return res.status(400).send({ err: err });
       }

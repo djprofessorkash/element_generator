@@ -14,7 +14,7 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save', function(next){
   // SET createdAt AND updatedAt
-  var now = new Date();
+  let now = new Date();
   if ( !this.points ) {
     this.points = 0;
   }
@@ -28,8 +28,8 @@ UserSchema.pre('save', function(next){
   if (!user.isModified('password')) {
     return next();
   }
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(user.password, salt, function(err, hash) {
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(user.password, salt, (err, hash) => {
       user.password = hash;
       next();
     });
@@ -37,8 +37,8 @@ UserSchema.pre('save', function(next){
 });
 
 
-UserSchema.methods.comparePassword = function(password, done) {
-  bcrypt.compare(password, this.password, function(err, isMatch) {
+UserSchema.methods.comparePassword = (password, done) => {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
     done(err, isMatch);
   });
 };

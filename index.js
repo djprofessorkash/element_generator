@@ -31,10 +31,10 @@ var hbs = hb.create({
 })
 
 // user database model
-var User = require('./user-model');
+let User = require('./user-model');
 
 // check that a user is logged in
-var checkAuth = function (req, res, next) {
+let checkAuth = (req, res, next) => {
   //console.log("Checking authentication");
   // make sure the user has a JWT cookie
   if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
@@ -58,15 +58,15 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
 
-var createElement = (elements) => {
-  var totalProtons = 0;
+let createElement = (elements) => {
+  let totalProtons = 0;
   for (let i = 0; i < elements.length; i++) {
     totalProtons += elements[i].protons;
   }
   return getElementByProtonNumber(totalProtons).name;
 }
 
-var getElementByProtonNumber = (protonNumber) => {
+let getElementByProtonNumber = (protonNumber) => {
   for (let i = 0; i < elementsArray.length; i++) {
     if (elementsArray[i].protons == protonNumber) {
       return elementsArray[i];
@@ -74,7 +74,7 @@ var getElementByProtonNumber = (protonNumber) => {
   }
 }
 
-var getElementByAbbrv = (elementAbbrv) => {
+let getElementByAbbrv = (elementAbbrv) => {
   for (let i = 0; i < elementsArray.length; i++) {
     if (elementsArray[i].abbrv == elementAbbrv) {
       //console.log(elementsArray[i])
@@ -83,7 +83,7 @@ var getElementByAbbrv = (elementAbbrv) => {
   }
 }
 
-var getElementByName = (elementName) => {
+let getElementByName = (elementName) => {
   for (let i = 0; i < elementsArray.length; i++) {
     if (elementsArray[i].name == elementName) {
       //console.log(elementsArray[i])
