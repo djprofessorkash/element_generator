@@ -1,7 +1,7 @@
 //**** dependencies ****//
 const express = require('express');
 const app = express();
-const hb = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
@@ -15,20 +15,32 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
+var hbs = exphbs.create({
+    // Specify helpers which are only registered on this instance.
+    helpers: {
+        newElement: (elements, currentUser) => {
+          // console.log("Calling helper");
+          var element = createElement(elements, currentUser); // returns name as String
+          console.log(element);
+          return element;
+        }
+    },
+    defaultLayout: 'main'
+});
+//
+// Handlebars.registerHelper("button", function (text) {
+//     var button = $('<button></button>').text(text).attr('onclick', 'button_clickEvent()');
+//     return $('<div></div>').append(button).html();
+// });
+//
+// var button_clickEvent = function () {
+//     alert("Button " + $(this).text() + " clicked.");
+// };
+
 // set up handlebars
-app.engine('handlebars', hb({defaultLayout: 'main'}));
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-var hbs = hb.create({
-  helpers: {
-    newElement: function(elements) {
-      console.log("calling helper");
-      var el = createElement(elements); // returns string (name)
-      console.log(el);
-      return el;
-    }
-  }
-})
 
 // user database model
 let User = require('./user-model');
@@ -58,12 +70,39 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
 
-let createElement = (elements) => {
+let createElement = (elements, user) => {
   let totalProtons = 0;
   for (let i = 0; i < elements.length; i++) {
     totalProtons += elements[i].protons;
   }
+  if (user) {
+    console.log("user exists");
+    storeNewElement(getElementByProtonNumber(totalProtons), user);
+  } else {
+    console.log("no user here");
+    storeNewElement(getElementByProtonNumber(totalProtons));
+  }
   return getElementByProtonNumber(totalProtons).name;
+}
+
+// sorry mitchell
+function storeNewElement(element) {
+
+  // check if the user exists
+  if (arguments[1]) {
+    console.log(arguments[1].id);
+    // look up user by id
+
+    User.findById(arguments[1].id).exec().then((user) => {
+      console.log('saving new element to user model')
+      console.log(user.unlockedElements);  // before
+      user.unlockedElements.push(element);
+      user.markModified('unlockedElements');
+      console.log(user.unlockedElements);  // after
+    });
+  } else {
+    console.log("whoops");
+  }
 }
 
 let getElementByProtonNumber = (protonNumber) => {
@@ -98,6 +137,9 @@ app.get('/', function(req, res) {
         var elementsToCombine = user.unlockedElements;
         if (!elementsToCombine || elementsToCombine.length == 0) {
           var h = getElementByAbbrv('H');
+          user.unlockedElements.push(h);
+          user.unlockedElements.push(h);
+          user.save();
           elementsToCombine = [h, h];
         }
         console.log(elementsToCombine);
@@ -106,7 +148,6 @@ app.get('/', function(req, res) {
   } else {
     var h = getElementByAbbrv('H');
     elementsToCombine = [h, h];
-    var newElement = createElement(elementsToCombine);
     res.render('home', {elements: elementsToCombine, currentUser: req.user});
   }
 })
