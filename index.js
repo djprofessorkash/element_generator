@@ -15,28 +15,6 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
-var hbs = exphbs.create({
-    // Specify helpers which are only registered on this instance.
-    helpers: {
-        newElement: (elements, currentUser) => {
-          // console.log("Calling helper");
-          var element = createElement(elements, currentUser); // returns name as String
-          console.log(element);
-          return element;
-        }
-    },
-    defaultLayout: 'main'
-});
-//
-// Handlebars.registerHelper("button", function (text) {
-//     var button = $('<button></button>').text(text).attr('onclick', 'button_clickEvent()');
-//     return $('<div></div>').append(button).html();
-// });
-//
-// var button_clickEvent = function () {
-//     alert("Button " + $(this).text() + " clicked.");
-// };
-
 // set up handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -130,6 +108,10 @@ let getElementByName = (elementName) => {
     }
   }
 }
+
+app.post('/users/:id/new-element', function(req, res) {
+
+})
 
 app.get('/', function(req, res) {
   if (req.user) {
