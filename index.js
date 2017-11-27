@@ -55,7 +55,7 @@ let createElement = (elements) => {
   return getElementByProtonNumber(totalProtons);
 }
 
-let storeNewElement = (element) => {
+let storeNewElement = (element) => { // not in use rn
   // check if the user exists
   if (arguments[1]) {
     console.log(arguments[1].id);
@@ -107,6 +107,7 @@ app.post('/users/:id/new-element', function(req, res) {
     // add new element to the user model
     user.unlockedElements.push(newElement);
     user.markModified('unlockedElements');
+    console.log("saved new element!");
     return {
       "name": newElement.name
     }
@@ -126,7 +127,6 @@ app.get('/', function(req, res) {
           user.save();
           elementsToCombine = [h, h];
         }
-        console.log(elementsToCombine);
         res.render('home', {elements: elementsToCombine, currentUser: req.user});
     })
   } else {

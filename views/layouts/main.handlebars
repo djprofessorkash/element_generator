@@ -27,7 +27,8 @@
       const userId = $(this).attr("data-current-user");
 
       // check if there is a user logged in
-      if (userId != "") {
+      if (userId != "" && userId != undefined) {
+        console.log("calling post request");
         // if so, send request to server to make new element for that user
         $.post('/element/' + userId + '/new-element',
           { elements }, // data passed to post route (array of element objects)
