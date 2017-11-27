@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-  <link rel="stylesheet" href="/styles.css" >
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -13,34 +12,41 @@
 <body>
   {{{body}}}
 
-
   <!-- scripts -->
   <script>
 
   $(() => {
 
+    $('.modal').modal();
+
     $('body').on('click', '.react-button', (e) => {
-      e.preventDefault()
-      const newElement = $(this).attr("data-new-element")
-      const element = $(this).attr("data-element")
-      $.post('/element/new',
-      { newElement, element },
-      (data) => {
-        // phs $_GET['name'] = Jojo  $_POST['a'] = 11
-        const json = JSON.parse(data)
-      })
+      e.preventDefault();
+      console.log("calling react button function");
+      // get data from button
+      const elements = $(this).attr("data-elements");
+      const userId = $(this).attr("data-current-user");
+
+      // check if there is a user logged in
+      if (userId != "") {
+        // if so, send request to server to make new element for that user
+        $.post('/element/' + userId + '/new-element',
+          { elements }, // data passed to post route (array of element objects)
+          (data) => {    // callback from server
+            const json = JSON.parse(data);
+            console.log(json);
+          })
+      }
     })
 
-
-    $('.modal').modal();
-    $("#the-button").click((e) => {
-      e.preventDefault()
-      $.post('url/new/?name=Jojo', {a:11,b:23}, (data) => {
-        // phs $_GET['name'] = Jojo  $_POST['a'] = 11
-      })
-
-      // fetch('url').then().catch()
-    });
+    // other example
+    // $("#the-button").click((e) => {
+    //   e.preventDefault()
+    //   $.post('url/new/?name=Jojo', {a:11,b:23}, (data) => {
+    //     // phs $_GET['name'] = Jojo  $_POST['a'] = 11
+    //   })
+    //
+    //   // fetch('url').then().catch() // can also use fetch!
+    // });
   });
   </script>
 </body>

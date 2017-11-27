@@ -8,14 +8,12 @@
       {{this.name}} {{#unless @last}} + {{/unless}}
     {{/each}}
   </p>
-  <button id='the-button' onclick="{{newElement elements currentUser}}"> React! </button>
 
   <button
-    class="submit-button"
-    data-new-element="{{newElement}}"
-    data-element="{{element}}"
+    class='react-button'
+    data-elements="{{elements}}"
     data-current-user="{{currentUser}}">
-      {{newElement elements currentUser}}
+      React!
   </button>
 </main>
 

@@ -1,7 +1,7 @@
 //**** dependencies ****//
 const express = require('express');
 const app = express();
-const exphbs = require('express-handlebars');
+const hb = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
@@ -16,9 +16,8 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 // set up handlebars
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', hb({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-
 
 // user database model
 let User = require('./user-model');
@@ -27,7 +26,7 @@ let User = require('./user-model');
 let checkAuth = (req, res, next) => {
   //console.log("Checking authentication");
   // make sure the user has a JWT cookie
-  if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
+  if (typeof req.cookies.nToken === undefined || req.cookies.nToken === null) {
     req.user = null;
     //console.log("no user");
   } else {
@@ -48,24 +47,15 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
 
-let createElement = (elements, user) => {
+let createElement = (elements) => {
   let totalProtons = 0;
   for (let i = 0; i < elements.length; i++) {
     totalProtons += elements[i].protons;
   }
-  if (user) {
-    console.log("user exists");
-    storeNewElement(getElementByProtonNumber(totalProtons), user);
-  } else {
-    console.log("no user here");
-    storeNewElement(getElementByProtonNumber(totalProtons));
-  }
-  return getElementByProtonNumber(totalProtons).name;
+  return getElementByProtonNumber(totalProtons);
 }
 
-// sorry mitchell
-function storeNewElement(element) {
-
+let storeNewElement = (element) => {
   // check if the user exists
   if (arguments[1]) {
     console.log(arguments[1].id);
@@ -79,7 +69,7 @@ function storeNewElement(element) {
       console.log(user.unlockedElements);  // after
     });
   } else {
-    console.log("whoops");
+    console.log('whoops');
   }
 }
 
@@ -110,7 +100,19 @@ let getElementByName = (elementName) => {
 }
 
 app.post('/users/:id/new-element', function(req, res) {
+  User.findById(req.params.id).exec().then((user) => {
+    var elementsToCombine = req.body.elements; // array of objects
+    var newElement = createElement(elementsToCombine);
 
+    // add new element to the user model
+    user.unlockedElements.push(newElement);
+    user.markModified('unlockedElements');
+    return {
+      "name": newElement.name
+    }
+  }).then((newElementJSON) => {
+    res.send(newElementJSON);
+  })
 })
 
 app.get('/', function(req, res) {
