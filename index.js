@@ -119,21 +119,35 @@ app.post('/users/:id/new-element', function(req, res) {
 
 app.get('/', function(req, res) {
   if (req.user) {
+
     User.findById(req.user.id).exec().then((user) => {
+        console.log("user found")
         var elementsToCombine = user.unlockedElements;
+        var elementsJSON = JSON.stringify(elementsToCombine);
+        console.log("json: " + elementsJSON)
+
+        // if the user doesn't have an elements array, initialize it
         if (!elementsToCombine || elementsToCombine.length == 0) {
           var h = getElementByAbbrv('H');
-          user.unlockedElements.push(h);
-          user.unlockedElements.push(h);
+          user.unlockedElements.push(h, h);
           user.save();
           elementsToCombine = [h, h];
+          var elementsJSON = JSON.stringify(elementsToCombine);
+          console.log("json: " + elementsJSON)
+          // var t = [1,2,3].reduce((acc, n, i, arr)=>{
+          //   return acc += n + ", "
+          // }, '')
+          // "1, 2, 3, "
         }
-        res.render('home', {elements: elementsToCombine, currentUser: req.user});
+        res.render('home', {elementsToCombine, elementsJSON, currentUser: req.user});
     })
   } else {
+    console.log("user not found")
     var h = getElementByAbbrv('H');
     elementsToCombine = [h, h];
-    res.render('home', {elements: elementsToCombine, currentUser: req.user});
+    var elementsJSON = JSON.stringify(elementsToCombine);
+    console.log(elementsJSON)
+    res.render('home', {elements: elementsToCombine, elementsJSON, currentUser: req.user});
   }
 })
 

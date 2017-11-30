@@ -19,7 +19,13 @@
 
     $('.modal').modal();
 
-    $('body').on('click', '.react-button', (e) => {
+    $('body').on('click', '.react-button', function(e) {
+      console.log(e.target)
+      console.log(this)
+      console.log($(this).attr('data-elements'))
+      console.log($(this).attr('class'))
+      console.log($(this).attr('data-current-user'))
+
       console.log("calling react button function");
       // get data from button
       const elements = $(this).attr('data-elements');

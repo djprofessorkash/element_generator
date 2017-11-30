@@ -4,14 +4,14 @@
 
 <main>
   <p>
-    {{#each elements}}
+    {{#each elementsToCombine}}
       {{this.name}} {{#unless @last}} + {{/unless}}
     {{/each}}
   </p>
 
   <button
     class='react-button btn'
-    data-elements="{{elements}}"
+    data-elements="{{elementsJSON}}"
     data-current-user="{{currentUser}}">
       React!
   </button>
