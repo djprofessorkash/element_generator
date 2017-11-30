@@ -28,5 +28,119 @@
     "name": "Carbon",
     "abbrv": "C",
     "protons": 6
+  },
+  {
+    "name": "Nitrogen",
+    "abbrv": "N",
+    "protons": 7
+  },
+  {
+    "name": "Oxygen",
+    "abbrv": "O",
+    "protons": 8
+  },
+  {
+    "name": "Fluorine",
+    "abbrv": "F",
+    "protons": 9
+  },
+  {
+    "name": "Neon",
+    "protons": 10
+  },
+  {
+    "name": "Sodium",
+    "abbrv": "Na",
+    "protons": 11
+  },
+  {
+    "name": "Magnesium",
+    "abbrv": "Mg",
+    "protons": 12
+  },
+  {
+    "name": "Aluminium",
+    "abbrv": "Al",
+    "protons": 13
+  },
+  {
+    "name": "Silicon",
+    "abbrv": "Si",
+    "protons": 14
+  },
+  {
+    "name": "Phosphorus",
+    "abbrv": "P",
+    "protons": 15
+  },
+  {
+    "name": "Sulfur",
+    "abbrv": "S",
+    "protons": 16
+  },
+  {
+    "name": "Chlorine",
+    "abbrv": "Cl",
+    "protons": 17
+  },
+  {
+    "name": "Argon",
+    "abbrv": "Ar",
+    "protons": 18
+  },
+  {
+    "name": "Potassium",
+    "abbrv": "K",
+    "protons": 19
+  },
+  {
+    "name": "Calcium",
+    "abbrv": "Ca",
+    "protons": 20
+  },
+  {
+    "name": "Scandium",
+    "abbrv": "Sc",
+    "protons": 21
+  },
+  {
+    "name": "Titanium",
+    "abbrv": "Ti",
+    "protons": 22
+  },
+  {
+    "name": "Vanadium",
+    "abbrv": "V",
+    "protons": 23
+  },
+  {
+    "name": "Chromium",
+    "abbrv": "Cr",
+    "protons": 24
+  },
+  {
+    "name": "Manganesse",
+    "abbrv": "Mn",
+    "protons": 25
+  },
+  {
+    "name": "Iron",
+    "abbrv": "Fe",
+    "protons": 26
+  },
+  {
+    "name": "Cobalt",
+    "abbrv": "Co",
+    "protons": 27
+  },
+  {
+    "name": "Nickel",
+    "abbrv": "Ni",
+    "protons": 28
+  },
+  {
+    "name": "Copper",
+    "abbrv": "Cu",
+    "protons": 29
   }
 ]

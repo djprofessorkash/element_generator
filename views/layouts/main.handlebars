@@ -18,7 +18,9 @@
   $(() => {
 
     $('.modal').modal();
+     $('select').material_select();
 
+    // react elements button @Aakash
     $('body').on('click', '.react-button', function(e) {
       console.log("calling react button function");
       // get data from button
@@ -35,6 +37,7 @@
           { elements }, // data passed to post route (JSON)
           (data) => {    // callback from server
             console.log(data);
+            $.get('/');
           })
       }
     })

@@ -109,18 +109,16 @@ app.post('/users/:id/new-element', function(req, res) {
     // add new element to the user model
     user.unlockedElements.push(newElement);
     user.markModified('unlockedElements');
-    console.log("saved new element!");
-    return {
-      "name": newElement.name
-    }
-  }).then((newElementJSON) => {
-    res.send(newElementJSON);
+    return user.save();
+  }).then((user) => {
+    var elementsToCombine = user.unlockedElements;
+    var elementsJSON = JSON.stringify(elementsToCombine);
+    res.send("Successfully reacted!")
   })
 })
 
 app.get('/', function(req, res) {
   if (req.user) {
-
     User.findById(req.user.id).exec().then((user) => {
         console.log("user found")
         var elementsToCombine = user.unlockedElements;
@@ -148,7 +146,7 @@ app.get('/', function(req, res) {
     elementsToCombine = [h, h];
     var elementsJSON = JSON.stringify(elementsToCombine);
     console.log(elementsJSON)
-    res.render('home', {elements: elementsToCombine, elementsJSON, currentUser: req.user.id});
+    res.render('home', {elements: elementsToCombine, elementsJSON});
   }
 })
 

@@ -9,6 +9,20 @@
     {{/each}}
   </p>
 
+  <select>
+    <option value="" disabled selected> Select First Element to React </option>
+    {{#each elementsToCombine}}
+      <option value="{{this.name}}"> {{this.name}} </option>
+    {{/each}}
+  </select>
+
+  <select>
+    <option value="" disabled selected> Select Second Element </option>
+    {{#each elementsToCombine}}
+      <option value="{{this.name}}"> {{this.name}} </option>
+    {{/each}}
+  </select>
+
   <button
     class='react-button btn'
     data-elements="{{elementsJSON}}"
