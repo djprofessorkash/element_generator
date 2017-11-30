@@ -23,17 +23,17 @@
       e.preventDefault();
       console.log("calling react button function");
       // get data from button
-      const elements = $(this).attr('data-elements'); // JSON string
-      console.log(elements);
+      const elements = $(this).attr('data-elements');
+      console.log("elements: " + elements);
       const userId = $(this).attr('data-current-user');
-      console.log(userId);
+      console.log("userID: " + userId);
 
       // check if there is a user logged in
       if (userId != "" && userId != undefined) {
         console.log("calling post request");
         // if so, send request to server to make new element for that user
         $.post('/element/' + userId + '/new-element',
-          { elements }, // data passed to post route (JSON string)
+          { elements }, // data passed to post route 
           (data) => {    // callback from server
             const json = JSON.parse(data);
             console.log(json);

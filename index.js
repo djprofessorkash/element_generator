@@ -129,12 +129,12 @@ app.get('/', function(req, res) {
           user.save();
           elementsToCombine = [h, h];
         }
-        res.render('home', {elements: JSON.stringify(elementsToCombine), currentUser: req.user});
+        res.render('home', {elements: elementsToCombine, currentUser: req.user});
     })
   } else {
     var h = getElementByAbbrv('H');
     elementsToCombine = [h, h];
-    res.render('home', {elements: JSON.stringify(elementsToCombine), currentUser: req.user});
+    res.render('home', {elements: elementsToCombine, currentUser: req.user});
   }
 })
 
