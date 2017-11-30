@@ -27,16 +27,15 @@
 
       // get selected elements from the form
       // TODO: switch to clickable buttons instead of form
-      var elementOne = $("select#elementOne").val();
-      var elementTwo = $("select#elementOne").val();
+      var elementOne = parseInt($("select#elementOne").val());
+      var elementTwo = parseInt($("select#elementTwo").val());
       var elements = [elementOne, elementTwo];
-      elements = JSON.stringify(elements)
+      elements = JSON.stringify(elements);
 
       // get data from button
       // const elements = $(this).attr('data-elements');
       // console.log("elements: " + elements);
       const userId = $(this).attr('data-current-user');
-      console.log("userID: " + userId);
 
       // check if there is a user logged in
       if (userId != "" && userId != undefined) {

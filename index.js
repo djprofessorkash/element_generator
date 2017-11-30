@@ -47,14 +47,16 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
 
-// takes in an array of element name strings
+// takes in an array of integers representing proton number
 // and returns an element object
 let createElement = (elements) => {
-  let totalProtons = 0;
-  for (let i = 0; i < elements.length; i++) {
-    let element = getElementByName(elements[i]);
-    totalProtons += element.protons;
+  console.log('creating element')
+  var totalProtons = 0;
+  for (var i = 0; i < elements.length; i++) {
+    totalProtons += element[i];
+    console.log(totalProtons)
   }
+  console.log("protons: " + totalProtons);
   return getElementByProtonNumber(totalProtons);
 }
 
@@ -84,19 +86,9 @@ let getElementByProtonNumber = (protonNumber) => {
   }
 }
 
-let getElementByAbbrv = (elementAbbrv) => {
-  for (let i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].abbrv == elementAbbrv) {
-      //console.log(elementsArray[i])
-      return elementsArray[i];
-    }
-  }
-}
-
 let getElementByName = (elementName) => {
   for (let i = 0; i < elementsArray.length; i++) {
     if (elementsArray[i].name == elementName) {
-      //console.log(elementsArray[i])
       return elementsArray[i];
     }
   }
@@ -108,10 +100,11 @@ app.post('/users/:id/new-element', function(req, res) {
     console.log("found user")
     var elementsToCombineJSON = req.body.elements; // JSON String
     var elementsToCombine = JSON.parse(elementsToCombineJSON);
+    console.log(elementsToCombine)
     var newElement = createElement(elementsToCombine);
 
     console.log(user.unlockedElements);
-    console.log(newElement.name)
+    console.log(newElement.name);
 
     // add new element to the user model IFF it's not already there
     var userHasElement = false;

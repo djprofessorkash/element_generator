@@ -142,5 +142,60 @@
     "name": "Copper",
     "abbrv": "Cu",
     "protons": 29
+  },
+  {
+    "name": "Zinc",
+    "abbrv": "Zn",
+    "protons": 30
+  },
+  {
+    "name": "Gallium",
+    "abbrv": "Ga",
+    "protons": 31
+  },
+  {
+    "name": "Germanium",
+    "abbrv": "Ga",
+    "protons": 31
+  },
+  {
+    "name": "Arsenic",
+    "abbrv": "As",
+    "protons": 33
+  },
+  {
+    "name": "Selenium",
+    "abbrv": "Se",
+    "protons": 34
+  },
+  {
+    "name": "Bromine",
+    "abbrv": "Br",
+    "protons": 35
+  },
+  {
+    "name": "Krypton",
+    "abbrv": "Kr",
+    "protons": 36
+  },
+  {
+    "name": "Rubidium",
+    "abbrv": "Rb",
+    "protons": 37
+  },
+  {
+    "name": "Strontium",
+    "abbrv": "Sr",
+    "protons": 38
+  },
+  {
+    "name": "Yttrium",
+    "abbrv": "Y",
+    "protons": 39
+  },
+  {
+    "name": "Zirconium",
+    "abbrv": "Zr",
+    "protons": 40
   }
 ]
