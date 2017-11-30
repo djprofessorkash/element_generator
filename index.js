@@ -53,9 +53,9 @@ let createElement = (elements) => {
   console.log('creating element')
   console.log(elements.length)
   var totalProtons = 0;
-  for (var i = 0; i < elements.length; i++) {
-    totalProtons += element[i];
-    console.log(totalProtons)
+  for (var j = 0; j < elements.length; j++) {
+    totalProtons += elements[j];
+    console.log(totalProtons);
   }
   console.log("protons: " + totalProtons);
   return getElementByProtonNumber(totalProtons);
@@ -65,8 +65,8 @@ let storeNewElement = (element) => { // not in use rn
   // check if the user exists
   if (arguments[1]) {
     console.log(arguments[1].id);
-    // look up user by id
 
+    // look up user by id
     User.findById(arguments[1].id).exec().then((user) => {
       console.log('saving new element to user model')
       console.log(user.unlockedElements);  // before
@@ -96,15 +96,14 @@ let getElementByName = (elementName) => {
 }
 
 app.post('/users/:id/new-element', function(req, res) {
-  console.log(req.body);
+
   User.findById(req.params.id).exec().then((user) => {
     console.log("found user")
     var elementsToCombineJSON = req.body.elements; // JSON String
     var elementsToCombine = JSON.parse(elementsToCombineJSON);
-    console.log(elementsToCombine)
     var newElement = createElement(elementsToCombine);
 
-    console.log(user.unlockedElements);
+    console.log(user);
     console.log(newElement.name);
 
     // add new element to the user model IFF it's not already there
