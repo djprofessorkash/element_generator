@@ -100,8 +100,10 @@ let getElementByName = (elementName) => {
 }
 
 app.post('/users/:id/new-element', function(req, res) {
+  console.log(req.body);
   User.findById(req.params.id).exec().then((user) => {
-    var elementsToCombine = req.body.elements; // array of objects
+    var elementsToCombineJSON = req.body.elements; // JSON string
+    var elementsToCombine = JSON.parse(elementsToCombineJSON);
     var newElement = createElement(elementsToCombine);
 
     // add new element to the user model
@@ -127,12 +129,12 @@ app.get('/', function(req, res) {
           user.save();
           elementsToCombine = [h, h];
         }
-        res.render('home', {elements: elementsToCombine, currentUser: req.user});
+        res.render('home', {elements: JSON.stringify(elementsToCombine), currentUser: req.user});
     })
   } else {
     var h = getElementByAbbrv('H');
     elementsToCombine = [h, h];
-    res.render('home', {elements: elementsToCombine, currentUser: req.user});
+    res.render('home', {elements: JSON.stringify(elementsToCombine), currentUser: req.user});
   }
 })
 
