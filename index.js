@@ -47,10 +47,13 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
 
+// takes in an array of element name strings
+// and returns an element object
 let createElement = (elements) => {
   let totalProtons = 0;
   for (let i = 0; i < elements.length; i++) {
-    totalProtons += elements[i].protons;
+    let element = getElementByName(elements[i]);
+    totalProtons += element.protons;
   }
   return getElementByProtonNumber(totalProtons);
 }
@@ -102,48 +105,51 @@ let getElementByName = (elementName) => {
 app.post('/users/:id/new-element', function(req, res) {
   console.log(req.body);
   User.findById(req.params.id).exec().then((user) => {
+    console.log("found user")
     var elementsToCombineJSON = req.body.elements; // JSON String
     var elementsToCombine = JSON.parse(elementsToCombineJSON);
     var newElement = createElement(elementsToCombine);
 
-    // add new element to the user model
-    user.unlockedElements.push(newElement);
-    user.markModified('unlockedElements');
-    return user.save();
-  }).then((user) => {
-    var elementsToCombine = user.unlockedElements;
-    var elementsJSON = JSON.stringify(elementsToCombine);
-    res.send("Successfully reacted!")
-  })
+    console.log(user.unlockedElements);
+    console.log(newElement.name)
+
+    // add new element to the user model IFF it's not already there
+    var userHasElement = false;
+    for (i = 0; i < user.unlockedElements.length; i++) {
+      if (user.unlockedElements[i].protons == newElement.protons) {
+        userHasElement = true;
+      }
+    }
+    if (!userHasElement) {
+      user.unlockedElements.push(newElement);
+      user.markModified('unlockedElements');
+      user.save();
+      console.log("saving new element")
+    }
+    res.send(newElement.name);
+  });
 })
 
 app.get('/', function(req, res) {
   if (req.user) {
     User.findById(req.user.id).exec().then((user) => {
-        console.log("user found")
         var elementsToCombine = user.unlockedElements;
         var elementsJSON = JSON.stringify(elementsToCombine);
-        console.log("json: " + elementsJSON)
 
         // if the user doesn't have an elements array, initialize it
         if (!elementsToCombine || elementsToCombine.length == 0) {
           var h = getElementByAbbrv('H');
-          user.unlockedElements.push(h, h);
+          user.unlockedElements.push(h);
           user.save();
-          elementsToCombine = [h, h];
-          var elementsJSON = JSON.stringify(elementsToCombine);
-          console.log("json: " + elementsJSON)
-          // var t = [1,2,3].reduce((acc, n, i, arr)=>{
-          //   return acc += n + ", "
-          // }, '')
-          // "1, 2, 3, "
+          elementsToCombine = [h];
+          var elementsJSON = JSON.stringify(elementsToCombine); // could also use reducer
         }
         res.render('home', {elementsToCombine, elementsJSON, currentUser: req.user.id});
     })
   } else {
     console.log("user not found")
     var h = getElementByAbbrv('H');
-    elementsToCombine = [h, h];
+    elementsToCombine = [h];
     var elementsJSON = JSON.stringify(elementsToCombine);
     console.log(elementsJSON)
     res.render('home', {elements: elementsToCombine, elementsJSON});

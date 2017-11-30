@@ -22,10 +22,19 @@
 
     // react elements button @Aakash
     $('body').on('click', '.react-button', function(e) {
+      e.preventDefault();
       console.log("calling react button function");
+
+      // get selected elements from the form
+      // TODO: switch to clickable buttons instead of form
+      var elementOne = $("select#elementOne").val();
+      var elementTwo = $("select#elementOne").val();
+      var elements = [elementOne, elementTwo];
+      elements = JSON.stringify(elements)
+
       // get data from button
-      const elements = $(this).attr('data-elements');
-      console.log("elements: " + elements);
+      // const elements = $(this).attr('data-elements');
+      // console.log("elements: " + elements);
       const userId = $(this).attr('data-current-user');
       console.log("userID: " + userId);
 
@@ -35,8 +44,9 @@
         // if so, send request to server to make new element for that user
         $.post('/users/' + userId + '/new-element',
           { elements }, // data passed to post route (JSON)
-          (data) => {    // callback from server
-            console.log(data);
+          (newElementName) => {    // callback from server
+            Materialize.toast("You just created " + newElementName, 2000);
+            console.log(newElementName);
             $.get('/');
           })
       }

@@ -4,31 +4,35 @@
 
 <main>
   <p>
+    Unlocked Elements:
     {{#each elementsToCombine}}
       {{this.name}} {{#unless @last}} + {{/unless}}
     {{/each}}
   </p>
 
-  <select>
-    <option value="" disabled selected> Select First Element to React </option>
-    {{#each elementsToCombine}}
-      <option value="{{this.name}}"> {{this.name}} </option>
-    {{/each}}
-  </select>
+  <form>
+    <select id="elementOne">
+      <option value="" disabled selected> Select First Element to React </option>
+      {{#each elementsToCombine}}
+        <option value="{{this.name}}"> {{this.name}} </option>
+      {{/each}}
+    </select>
 
-  <select>
-    <option value="" disabled selected> Select Second Element </option>
-    {{#each elementsToCombine}}
-      <option value="{{this.name}}"> {{this.name}} </option>
-    {{/each}}
-  </select>
+    <select id="elementTwo">
+      <option value="" disabled selected> Select Second Element </option>
+      {{#each elementsToCombine}}
+        <option value="{{this.name}}"> {{this.name}} </option>
+      {{/each}}
+    </select>
 
-  <button
-    class='react-button btn'
-    data-elements="{{elementsJSON}}"
-    data-current-user="{{currentUser}}">
-      React!
-  </button>
+    <button
+    type="submit"
+      class='react-button btn'
+      data-elements="{{elementsJSON}}"
+      data-current-user="{{currentUser}}">
+        React!
+    </button>
+  </form>
 </main>
 
 
