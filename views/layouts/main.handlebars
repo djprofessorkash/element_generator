@@ -20,12 +20,6 @@
     $('.modal').modal();
 
     $('body').on('click', '.react-button', function(e) {
-      console.log(e.target)
-      console.log(this)
-      console.log($(this).attr('data-elements'))
-      console.log($(this).attr('class'))
-      console.log($(this).attr('data-current-user'))
-
       console.log("calling react button function");
       // get data from button
       const elements = $(this).attr('data-elements');
@@ -37,11 +31,10 @@
       if (userId != "" && userId != undefined) {
         console.log("calling post request");
         // if so, send request to server to make new element for that user
-        $.post('/element/' + userId + '/new-element',
-          { elements }, // data passed to post route
+        $.post('/users/' + userId + '/new-element',
+          { elements }, // data passed to post route (JSON)
           (data) => {    // callback from server
-            const json = JSON.parse(data);
-            console.log(json);
+            console.log(data);
           })
       }
     })
