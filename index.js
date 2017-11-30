@@ -102,8 +102,7 @@ let getElementByName = (elementName) => {
 app.post('/users/:id/new-element', function(req, res) {
   console.log(req.body);
   User.findById(req.params.id).exec().then((user) => {
-    var elementsToCombineJSON = req.body.elements; // JSON string
-    var elementsToCombine = JSON.parse(elementsToCombineJSON);
+    var elementsToCombine = req.body.elements; // Array
     var newElement = createElement(elementsToCombine);
 
     // add new element to the user model
