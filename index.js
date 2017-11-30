@@ -51,6 +51,7 @@ const elementsArray = require('./elements.json');
 // and returns an element object
 let createElement = (elements) => {
   console.log('creating element')
+  console.log(elements.length)
   var totalProtons = 0;
   for (var i = 0; i < elements.length; i++) {
     totalProtons += element[i];
@@ -131,7 +132,7 @@ app.get('/', function(req, res) {
 
         // if the user doesn't have an elements array, initialize it
         if (!elementsToCombine || elementsToCombine.length == 0) {
-          var h = getElementByAbbrv('H');
+          var h = getElementByName('Hydrogen');
           user.unlockedElements.push(h);
           user.save();
           elementsToCombine = [h];
@@ -141,7 +142,7 @@ app.get('/', function(req, res) {
     })
   } else {
     console.log("user not found")
-    var h = getElementByAbbrv('H');
+    var h = getElementByName('Hydrogen');
     elementsToCombine = [h];
     var elementsJSON = JSON.stringify(elementsToCombine);
     console.log(elementsJSON)
