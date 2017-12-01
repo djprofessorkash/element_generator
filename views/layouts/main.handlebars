@@ -45,8 +45,8 @@
           { elements }, // data passed to post route (JSON)
           (newElementName) => {    // callback from server
             console.log(newElementName);
-            location.reload();
             Materialize.toast("You just created " + newElementName, 2000);
+            setTimeout(function() { location.reload(); }, 2000)
           })
       }
     })
