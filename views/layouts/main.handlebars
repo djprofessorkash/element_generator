@@ -44,9 +44,9 @@
         $.post('/users/' + userId + '/new-element',
           { elements }, // data passed to post route (JSON)
           (newElementName) => {    // callback from server
-            Materialize.toast("You just created " + newElementName, 2000);
             console.log(newElementName);
-            $.get('/');
+            location.reload();
+            Materialize.toast("You just created " + newElementName, 2000);
           })
       }
     })

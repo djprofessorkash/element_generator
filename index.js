@@ -47,7 +47,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
 
-// takes in an array of integers representing proton number
+// takes in an array of integers representing proton numbers
 // and returns an element object
 let createElement = (elements) => {
   console.log('creating element')
@@ -55,9 +55,8 @@ let createElement = (elements) => {
   var totalProtons = 0;
   for (var j = 0; j < elements.length; j++) {
     totalProtons += elements[j];
-    console.log(totalProtons);
   }
-  console.log("protons: " + totalProtons);
+
   return getElementByProtonNumber(totalProtons);
 }
 
@@ -95,6 +94,21 @@ let getElementByName = (elementName) => {
   }
 }
 
+let sortByProtonNumber = (elements) => {
+  var protons = [];
+  var returnElements = [];
+  for (let i = 0; i < elements.length; i++) {
+    protons.push(elements[i].protons);
+  }
+  protons.sort((a, b) => a - b);
+  console.log(protons)
+  for (let i = 0; i < protons.length; i++) {
+    returnElements.push(getElementByProtonNumber(protons[i]));
+  }
+  console.log(returnElements)
+  return returnElements;
+}
+
 app.post('/users/:id/new-element', function(req, res) {
 
   User.findById(req.params.id).exec().then((user) => {
@@ -103,7 +117,6 @@ app.post('/users/:id/new-element', function(req, res) {
     var elementsToCombine = JSON.parse(elementsToCombineJSON);
     var newElement = createElement(elementsToCombine);
 
-    console.log(user);
     console.log(newElement.name);
 
     // add new element to the user model IFF it's not already there
@@ -126,7 +139,7 @@ app.post('/users/:id/new-element', function(req, res) {
 app.get('/', function(req, res) {
   if (req.user) {
     User.findById(req.user.id).exec().then((user) => {
-        var elementsToCombine = user.unlockedElements;
+        var elementsToCombine = sortByProtonNumber(user.unlockedElements)
         var elementsJSON = JSON.stringify(elementsToCombine);
 
         // if the user doesn't have an elements array, initialize it
