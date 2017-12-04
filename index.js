@@ -46,6 +46,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 const elementsArray = require('./elements.json');
+var anonElements = [];
 
 // takes in an array of integers representing proton numbers
 // and returns an element object
@@ -62,18 +63,22 @@ let createElement = (elements) => {
 
 let storeNewElement = (element) => { // not in use rn
   // check if the user exists
-  if (arguments[1]) {
-    console.log(arguments[1].id);
+  // if (!arguments[1]) {
+    // console.log(arguments);
 
     // Attempt to make element saving without login
-    User.findById(arguments[1].id).exec().then((user) => {
-      console.log('saving new element to user model')
-      console.log(user.unlockedElements);  // before
-      user.unlockedElements.push(element);
-      user.markModified('unlockedElements');
-      console.log(user.unlockedElements);
-    });
+    // if element called by function is not in anonElements:
+    //  store new element there
+    //  call this whenever user is not logged in
+    //  reset on log-in
 
+    // if (anonElements.length() == 0) {
+    //   anonElements.push(element);
+    //   return;
+    // }
+    if (element in anonElements) {      // if element called by function is not in anonElements:      
+      anonElements.push(element);
+    }
 
     // look up user by id
     User.findById(arguments[1].id).exec().then((user) => {
@@ -83,9 +88,9 @@ let storeNewElement = (element) => { // not in use rn
       user.markModified('unlockedElements');
       console.log(user.unlockedElements);  // after
     });
-  } else {
+  //} else {
     console.log('whoops');
-  }
+  //}
 }
 
 let getElementByProtonNumber = (protonNumber) => {
@@ -119,6 +124,7 @@ let sortByProtonNumber = (elements) => {
   return returnElements;
 }
 
+// This request holds the logic to add elements to user's profile
 app.post('/users/:id/new-element', function(req, res) {
 
   User.findById(req.params.id).exec().then((user) => {
@@ -164,10 +170,15 @@ app.get('/', function(req, res) {
     })
   } else {
     console.log("user not found")
-    var h = getElementByName('Hydrogen');
-    elementsToCombine = [h];
-    var elementsJSON = JSON.stringify(elementsToCombine);
+    if (!anonElements || anonElements.length == 0) {
+      var h = getElementByName('Hydrogen');
+      storeNewElement(h);
+      elementsToCombine = [h];
+      var elementsJSON = JSON.stringify(elementsToCombine);
+    }
+    elementsToCombine = sortByProtonNumber(elementsToCombine);
     console.log(elementsJSON)
+    // get anonElements and render
     res.render('home', {elements: elementsToCombine, elementsJSON});
   }
 })

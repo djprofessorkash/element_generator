@@ -1,4 +1,4 @@
-# Element Generator
+# Element Generator (NUCLEUS)
 Education Simulator for Basic Chemistry
 
 <h1 align="center">
