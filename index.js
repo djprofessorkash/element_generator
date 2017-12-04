@@ -61,37 +61,6 @@ let createElement = (elements) => {
   return getElementByProtonNumber(totalProtons);
 }
 
-let storeNewElement = (element) => { // not in use rn
-  // check if the user exists
-  // if (!arguments[1]) {
-    // console.log(arguments);
-
-    // Attempt to make element saving without login
-    // if element called by function is not in anonElements:
-    //  store new element there
-    //  call this whenever user is not logged in
-    //  reset on log-in
-
-    // if (anonElements.length() == 0) {
-    //   anonElements.push(element);
-    //   return;
-    // }
-    if (element in anonElements) {      // if element called by function is not in anonElements:      
-      anonElements.push(element);
-    }
-
-    // look up user by id
-    User.findById(arguments[1].id).exec().then((user) => {
-      console.log('saving new element to user model')
-      console.log(user.unlockedElements);  // before
-      user.unlockedElements.push(element);
-      user.markModified('unlockedElements');
-      console.log(user.unlockedElements);  // after
-    });
-  //} else {
-    console.log('whoops');
-  //}
-}
 
 let getElementByProtonNumber = (protonNumber) => {
   for (let i = 0; i < elementsArray.length; i++) {
@@ -122,6 +91,38 @@ let sortByProtonNumber = (elements) => {
   }
   console.log(returnElements)
   return returnElements;
+}
+
+let storeNewElement = (element) => { // not in use rn
+  // check if the user exists
+  // if (!arguments[1]) {
+    // console.log(arguments);
+
+    // Attempt to make element saving without login
+    // if element called by function is not in anonElements:
+    //  store new element there
+    //  call this whenever user is not logged in
+    //  reset on log-in
+
+    // if (anonElements.length() == 0) {
+    //   anonElements.push(element);
+    //   return;
+    // }
+    if (element in anonElements) {      // if element called by function is not in anonElements:      
+      anonElements.push(element);
+    }
+
+    // look up user by id
+    User.findById(arguments[1].id).exec().then((user) => {
+      console.log('saving new element to user model')
+      console.log(user.unlockedElements);  // before
+      user.unlockedElements.push(element);
+      user.markModified('unlockedElements');
+      console.log(user.unlockedElements);  // after
+    });
+  //} else {
+    console.log('whoops');
+  //}
 }
 
 // This request holds the logic to add elements to user's profile
@@ -170,6 +171,8 @@ app.get('/', function(req, res) {
     })
   } else {
     console.log("user not found")
+
+    // Checks to see if no anonymous elements have been stored and, if so, stores hydrogen
     if (!anonElements || anonElements.length == 0) {
       var h = getElementByName('Hydrogen');
       storeNewElement(h);
