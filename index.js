@@ -65,6 +65,16 @@ let storeNewElement = (element) => { // not in use rn
   if (arguments[1]) {
     console.log(arguments[1].id);
 
+    // Attempt to make element saving without login
+    User.findById(arguments[1].id).exec().then((user) => {
+      console.log('saving new element to user model')
+      console.log(user.unlockedElements);  // before
+      user.unlockedElements.push(element);
+      user.markModified('unlockedElements');
+      console.log(user.unlockedElements);
+    });
+
+
     // look up user by id
     User.findById(arguments[1].id).exec().then((user) => {
       console.log('saving new element to user model')
