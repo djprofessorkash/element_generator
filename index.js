@@ -7,6 +7,9 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+
+var Location = mongoose.model("Location", )
+
 require('dotenv').config();
 
 //**** middleware ****//
@@ -81,81 +84,87 @@ let getElementByName = (elementName) => {
 let sortByProtonNumber = (elements) => {
   var protons = [];
   var returnElements = [];
+
   for (let i = 0; i < elements.length; i++) {
     protons.push(elements[i].protons);
   }
+
   protons.sort((a, b) => a - b);
-  console.log(protons)
+  console.log(protons);
+
   for (let i = 0; i < protons.length; i++) {
     returnElements.push(getElementByProtonNumber(protons[i]));
   }
+
   console.log(returnElements)
   return returnElements;
 }
 
 let storeNewElement = (element) => { // not in use rn
-  // check if the user exists
-  // if (!arguments[1]) {
-    // console.log(arguments);
-
     // Attempt to make element saving without login
     // if element called by function is not in anonElements:
     //  store new element there
     //  call this whenever user is not logged in
     //  reset on log-in
 
-    // if (anonElements.length() == 0) {
-    //   anonElements.push(element);
-    //   return;
-    // }
-    if (element in anonElements) {      // if element called by function is not in anonElements:      
-      anonElements.push(element);
+    if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:      
+      anonElements.push(element);               // then push element into array
     }
 
     // look up user by id
-    User.findById(arguments[1].id).exec().then((user) => {
-      console.log('saving new element to user model')
-      console.log(user.unlockedElements);  // before
-      user.unlockedElements.push(element);
-      user.markModified('unlockedElements');
-      console.log(user.unlockedElements);  // after
-    });
-  //} else {
-    console.log('whoops');
-  //}
+    User
+      .findById(arguments[1].id)
+      .exec()
+      .then((user) => {
+        console.log('saving new element to user model')
+        console.log(user.unlockedElements);  // before
+        user.unlockedElements.push(element);
+        user.markModified('unlockedElements');
+        console.log(user.unlockedElements);  // after
+      });
+    //} else {
+      console.log('whoops');
+    //}
 }
 
 // This request holds the logic to add elements to user's profile
-app.post('/users/:id/new-element', function(req, res) {
+app.post('/users/:id/new-element', (req, res) => {
 
-  User.findById(req.params.id).exec().then((user) => {
-    console.log("found user")
-    var elementsToCombineJSON = req.body.elements; // JSON String
-    var elementsToCombine = JSON.parse(elementsToCombineJSON);
-    var newElement = createElement(elementsToCombine);
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      console.log("found user")
+      var elementsToCombineJSON = req.body.elements; // JSON String
+      var elementsToCombine = JSON.parse(elementsToCombineJSON);
+      var newElement = createElement(elementsToCombine);
 
-    console.log(newElement.name);
+      console.log(newElement.name);
 
-    // add new element to the user model IFF it's not already there
-    var userHasElement = false;
-    for (i = 0; i < user.unlockedElements.length; i++) {
-      if (user.unlockedElements[i].protons == newElement.protons) {
-        userHasElement = true;
+      // add new element to the user model IFF it's not already there
+      var userHasElement = false;
+      for (i = 0; i < user.unlockedElements.length; i++) {
+        if (user.unlockedElements[i].protons == newElement.protons) {
+          userHasElement = true;
+        }
       }
-    }
-    if (!userHasElement) {
-      user.unlockedElements.push(newElement);
-      user.markModified('unlockedElements');
-      user.save();
-      console.log("saving new element")
-    }
-    res.send(newElement.name);
-  });
-})
+      if (!userHasElement) {
+        user.unlockedElements.push(newElement);
+        user.markModified('unlockedElements');
+        user.save();
+
+        console.log("saving new element")
+      }
+      res.send(newElement.name);
+    });
+});
 
 app.get('/', function(req, res) {
   if (req.user) {
-    User.findById(req.user.id).exec().then((user) => {
+    User
+    .findById(req.user.id)
+    .exec()
+    .then((user) => {
         var elementsToCombine = sortByProtonNumber(user.unlockedElements)
         var elementsJSON = JSON.stringify(elementsToCombine);
 
