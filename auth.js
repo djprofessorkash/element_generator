@@ -33,8 +33,23 @@ module.exports = (app) => {
     res.redirect('/');
   })
 
-  app.get('/profile', (req, res) => {
-    res.render('profile');
+  app.get("/profile", (req, res) => {
+    if (req.user) {
+      User
+        .findById(req.user.id)
+        .exec()
+        .then((user) => {
+          console.log("User Found");
+          res.render("profile");
+          console.log(User.schema.obj.unlockedElements);
+        }).catch((err) => {
+          console.error(err.message);
+        });
+    }
+    else {
+      console.log("User Not Found");
+      res.redirect("/");
+    }
   })
 
   // sign-up
