@@ -11,6 +11,11 @@ Education Simulator for Basic Chemistry
 
 The Element Generator is an educational simulator that teaches the basics of chemical interactions from the start of the known universe to modern day. 
 
+## AUTHORS
+- Alirie Gray
+- Laurel Machak
+- Aakash Sudhakar
+
 ## FEATURES
 - Interactive user-guided adventure in discovering the elements of the universe.
 - Point-based system in measuring student progress and learning growth.
@@ -20,6 +25,8 @@ The Element Generator is an educational simulator that teaches the basics of che
 - JQuery, AJAX, Handlebars
 
 ### TODO
-- Minimum of four reactive elements (two at tutorial)
+- Laurel: Get buttons to work on home page for unlocked elements
+- Alirie: React button to work on home page
+- Aakash: Periodic Table on Profile page for unlocked elements
 - Description pages for each element
 
