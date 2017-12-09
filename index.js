@@ -8,8 +8,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
-var Location = mongoose.model("Location", )
-
 require('dotenv').config();
 
 //**** middleware ****//
@@ -107,7 +105,7 @@ let storeNewElement = (element) => { // not in use rn
     //  call this whenever user is not logged in
     //  reset on log-in
 
-    if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:      
+    if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:
       anonElements.push(element);               // then push element into array
     }
 
