@@ -2,7 +2,10 @@
   {
     "name": "Hydrogen",
     "abbrv": "H",
-    "protons": 1
+    "protons": 1,
+    "electrons": 0,
+    "neutrons": 0,
+    "description": "Sample Hydrogen description"    
   },
   {
     "name": "Helium",

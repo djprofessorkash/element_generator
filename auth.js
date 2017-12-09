@@ -41,7 +41,6 @@ module.exports = (app) => {
         .then((user) => {
           console.log("User Found");
           res.render("profile");
-          console.log(User.schema.obj.unlockedElements);
         }).catch((err) => {
           console.error(err.message);
         });
