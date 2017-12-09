@@ -13,3 +13,7 @@ There are several e-learning programs that allow students from K-12 to learn a r
 Introducing <i>Nucleus</i>, a hands-on element generator game on the web that allows classrooms of students to create accounts and manually react atoms together. Through our software, all students need is an Internet connection to learn about the basics of nuclear chemistry. 
 
 > - Benefit(s):
+
+v0 gives students in elementary and middle school a fun, systematic, gamified way to learn nuclear chemistry and help gain an understanding of how basic science works, both at the atomic level and in the real world.
+
+v1 will allow teachers accessibility to student learning rates, as they will be able to see how quickly students are learning and earning points across the Nucleus system.
