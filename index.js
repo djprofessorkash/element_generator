@@ -55,9 +55,14 @@ let createElement = (elements) => {
   console.log('creating element')
   console.log(elements.length)
   var totalProtons = 0;
+  if (elements.length < 2){
+    totalProtons = (element[0] * 2)
+  }
+  else{
   for (var j = 0; j < elements.length; j++) {
     totalProtons += elements[j];
   }
+}
 
   return getElementByProtonNumber(totalProtons);
 }
@@ -105,7 +110,7 @@ let storeNewElement = (element) => { // not in use rn
     //  call this whenever user is not logged in
     //  reset on log-in
 
-    if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:      
+    if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:
       anonElements.push(element);               // then push element into array
     }
 
