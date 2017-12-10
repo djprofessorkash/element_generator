@@ -70,6 +70,7 @@ header {
     background-color:rgba(24, 17, 30, 0.9);
     color:#ffffff;
     display:flex;
+    align-items: center;
     font-family: delirium;
     font-size: 160%;
     height:50px;
