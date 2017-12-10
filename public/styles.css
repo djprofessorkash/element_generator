@@ -21,10 +21,11 @@ html,body{
 
 /* unlocked elements buttons */
 .unlocked_element{
-  width:7em;
-  height:7em;
+  width:5em;
+  height:5em;
   border-radius:50px;
   border:none;
+  font-size: 150%;
   background-color:#c9e5e8;
   z-index:4;
 }
@@ -45,6 +46,7 @@ html,body{
   box-shadow: 0 0 0 0 rgba(255, 216, 76, 0.7);
   border-radius: 50%;
   background-color: #ffd84c;
+  font-size: 400%;
   background-size:cover;
   background-repeat: no-repeat;
   cursor: pointer;
