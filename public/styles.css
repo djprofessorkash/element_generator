@@ -9,6 +9,10 @@ html,body{
   font-family: delirium;
 }
 
+.elementButtons {
+  margin-top: 60px;
+}
+
 .container {
   width: 200px;
   height: 100%;
@@ -29,12 +33,12 @@ html,body{
   border:1px solid #86c631;
 }
 
-.selected {
+.unlocked_element .selected {
   background-color:#86c631;
 }
 
 .pulse-button {
-  margin-top: 120px;
+  margin-top: 20px;
   width: 200px;
   height: 200px;
   border: none;
@@ -59,10 +63,7 @@ html,body{
 @-ms-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
 @keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
 
-* {
-    margin: 0;
-    padding: 0;
-}
+
 header {
     background-color:rgba(24, 17, 30, 0.9);
     color:#ffffff;
