@@ -1,9 +1,18 @@
+<!-- ========================================================================== -->
+<!-- ========================================================================== -->
+<!-- NAME: loginbar.handlebars                                                  -->
+<!-- DESCRIPTION: Handlebars file for laying out user-specific loginbar.        -->
+<!-- ========================================================================== -->
+<!-- ========================================================================== -->
+
+
+<!-- ==================== DISPLAY LOGICAL NAVBAR FOR LOGIN ==================== -->
 <div class="nav">
   {{#if currentUser}}
-  <div class="login">
-    <button class="btn-flat" onclick="location.href = '/profile'; return false;"> My Progress</button>
-    <button class="btn-flat" onclick="location.href = '/logout'; return false;"> Logout</button>
-  </div>
+    <div class="login">
+      <button class="btn-flat" onclick="location.href = '/profile'; return false;"> My Progress </button>
+      <button class="btn-flat" onclick="location.href = '/logout'; return false;"> Logout </button>
+    </div>
   {{else}}
     <form class="login">
       <button class="btn-flat modal-trigger" data-target="modalL"> Login </button>
