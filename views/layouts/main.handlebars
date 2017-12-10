@@ -30,7 +30,7 @@
      var getChecked = () => {
        var currentlySelected = [];
        //for (let i = 0; i < elementsToCombine.length; i++){
-       $('unlocked_element').each(function(){
+       $('.unlocked_element').each(function(){
          if ($(this).hasClass('selected')){
            currentlySelected.push($(this).val());
          }
@@ -53,6 +53,7 @@ $(".unlocked_element").click(function(){
       $(this).removeClass("selected");
     }
   }
+  console.log(getChecked())
 
 })
 
@@ -65,9 +66,9 @@ $(".unlocked_element").click(function(){
 
       // get selected elements from the form
       // TODO: switch to clickable buttons instead of form
-      var elementOne = parseInt($("select#elementOne").val());
-      var elementTwo = parseInt($("select#elementTwo").val());
-      var elements = [elementOne, elementTwo];
+      //var elementOne = parseInt($("select#elementOne").val());
+      //var elementTwo = parseInt($("select#elementTwo").val());
+      var elements = getChecked();
       elements = JSON.stringify(elements);
 
       // get data from button
@@ -78,11 +79,12 @@ $(".unlocked_element").click(function(){
       // check if there is a user logged in
       if (userId != "" && userId != undefined) {
         console.log("calling post request");
+        console.log(elements)
         // if so, send request to server to make new element for that user
         $.post('/users/' + userId + '/new-element',
           { elements }, // data passed to post route (JSON)
           (newElementName) => {    // callback from server
-            console.log(newElementName);
+            console.log("new element" + newElementName);
             Materialize.toast("You just created " + newElementName, 2000);
             setTimeout(function() { location.reload(); }, 2000)
           })

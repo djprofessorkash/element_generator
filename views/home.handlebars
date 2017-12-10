@@ -15,9 +15,9 @@
 
   <form>
   {{#each elementsToCombine}}
-    <button class="unlocked_element" value="{{this.protons}}">{{this.name}}</button>
+    <button class="unlocked_element" type="button" value="{{this.protons}}">{{this.name}}</button>
  {{/each}}
-    <select id="elementOne">
+    <!-- <select id="elementOne">
       <option value="" disabled selected> Select First Element to React </option>
       {{#each elementsToCombine}}
         <option value="{{this.protons}}"> {{this.name}} </option>
@@ -29,7 +29,7 @@
       {{#each elementsToCombine}}
         <option value="{{this.protons}}"> {{this.name}} </option>
       {{/each}}
-    </select>
+    </select> -->
 
     <div class='container'>
     <button

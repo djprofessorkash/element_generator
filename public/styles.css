@@ -11,8 +11,8 @@ html,body{
 
 /* unlocked elements buttons */
 .unlocked_element{
-  width:8em;
-  height:8em;
+  width:7em;
+  height:7em;
   border-radius:50px;
   border:none;
   background-color:#c9e5e8;
