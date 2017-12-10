@@ -22,7 +22,7 @@ html,body{
   border-radius:50px;
   border:none;
   background-color:#c9e5e8;
-  z-index:2;
+  z-index:4;
 }
 
 .unlocked_element:hover{
@@ -32,8 +32,6 @@ html,body{
 .selected{
   background-color:#86c631;
 }
-
-
 
 .pulse-button {
 
