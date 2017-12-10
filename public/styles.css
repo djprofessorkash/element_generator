@@ -6,9 +6,14 @@
 
 
 html,body{
-  background-color:#52425e;
+  background-color:#ffffff;
   color: white;
   font-family: delirium;
+}
+
+.modal {
+  font-family: sans-serif !important;
+  color: black;
 }
 
 .elementButtons {
@@ -34,7 +39,7 @@ html,body{
 }
 
 .unlocked_element:hover{
-  border:1px solid #86c631;
+  border:2px solid #21447c;
 }
 
 .selected {

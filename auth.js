@@ -1,6 +1,6 @@
-/* 
+/*
 NAME: auth.js
-DESCRIPTION: Authentication file. 
+DESCRIPTION: Authentication file.
 */
 
 
@@ -25,7 +25,7 @@ module.exports = (app) => {
   app.post("/login", function(req, res, next) {
     User
       .findOne({ username: req.body.username }, "+password", (err, user) => {
-        if (!user) { 
+        if (!user) {
           return res.status(401).send({ message: "Wrong username or password" });
         };
 
@@ -69,7 +69,7 @@ module.exports = (app) => {
           console.log("UNLOCKED ELEMENTS IN TABLE: ");
           console.log(unlockedElementsInTable);
 
-          res.render("profile", { currentUser: user, unlockedElementsInTable });          
+          res.render("profile", { currentUser: user, unlockedElementsInTable });
         }).catch((err) => {
           console.error(err.message);
         });
