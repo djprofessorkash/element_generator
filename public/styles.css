@@ -34,7 +34,7 @@ html,body{
   border:1px solid #86c631;
 }
 
-.unlocked_element .selected {
+.selected {
   background-color:#86c631;
 }
 
