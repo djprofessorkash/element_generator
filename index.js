@@ -217,8 +217,8 @@ app.get("/", (req, res) => {
     .findById(req.user.id)
     .exec()
     .then((user) => {
-        let elementsToCombine = sortByProtonNumber(user.unlockedElements)
-        let elementsJSON = JSON.stringify(elementsToCombine);
+        var elementsToCombine = sortByProtonNumber(user.unlockedElements)
+        var elementsJSON = JSON.stringify(elementsToCombine);
 
         if (!elementsToCombine || elementsToCombine.length == 0) {
           let h = getElementByName("Hydrogen");
@@ -226,7 +226,7 @@ app.get("/", (req, res) => {
           user.save();
 
           elementsToCombine = [h];
-          let elementsJSON = JSON.stringify(elementsToCombine); // OPTION: Could use Reducer here
+          var elementsJSON = JSON.stringify(elementsToCombine); // OPTION: Could use Reducer here
         }
         res.render("home", {elementsToCombine, elementsJSON, currentUser: req.user.id});
     }); 
@@ -236,11 +236,11 @@ app.get("/", (req, res) => {
 
     // Checks to see if no anonymous elements have been stored and, if so, stores Hydrogen
     if (!anonElements || anonElements.length == 0) {
-      let h = getElementByName("Hydrogen");
+      var h = getElementByName("Hydrogen");
       storeNewElement(h);
 
       elementsToCombine = [h];
-      let elementsJSON = JSON.stringify(elementsToCombine);
+      var elementsJSON = JSON.stringify(elementsToCombine);
     }
 
     elementsToCombine = sortByProtonNumber(elementsToCombine);
