@@ -33,11 +33,20 @@ app.use(bodyParser.json());
 app.use(cookieParser());                                  // Initializes Cookie-Parser
 app.use(express.static("public"));                        // Initializes Express
 
-// set up handlebars
 app.engine("handlebars", hb({ defaultLayout: "main" }));  // Initializes Handlebars
 app.set("view engine", "handlebars");
 
+mongoose.promise = global.promise;                        // Initialize Mongoose
+mongoose.connect("mongodb://heroku_1kx55dgr:6bisnk21n4op7sprqve5ji6s88@ds149905.mlab.com:49905/heroku_1kx55dgr");
+
+var db = mongoose.connection;                             // Connect to database
+db.on("error", console.error.bind(console, "connection error:"));
+
 const User = require("./user-model");                     // Requires User Model
+
+const elementsArray = require('./elements.json');         // Requires Elements JSON (NOTE: Switch to Elements Dictionary JSON)
+
+let anonElements = [];                                    // Initialize Elements object for anonymous user
 
 
 // ================================================================================
@@ -45,87 +54,82 @@ const User = require("./user-model");                     // Requires User Model
 // ================================================================================
 
 
+// ===================== FUNCTION TO CHECK USER AUTHENTICATION ====================
 let checkAuth = (req, res, next) => {
   // console.log("CHECKING AUTHENTICATION...");
-  // make sure the user has a JWT cookie
+
+  // Ensure user has appropriate authentication token
   if (typeof req.cookies.nToken === undefined || req.cookies.nToken === null) {
     req.user = null;
     // console.log("USER NOT FOUND.");
   } else {
-    // if the user has a JWT cookie, decode it and set the user
+    // If user has JSONWebToken cookie, decode cookie and authorize user
     // console.log("USER FOUND.");
-    var token = req.cookies.nToken;
-    var decodedToken = jwt.decode(token, { complete: true }) || {};
+    let token = req.cookies.nToken;
+    let decodedToken = jwt.decode(token, { complete: true }) || {};
     req.user = decodedToken.payload;
   }
   next();
 }
 
+app.use(checkAuth);           // Initialize user authentication
+
 
 // ================================================================================
 // =============================== GLOBAL FUNCTIONS ===============================
 // ================================================================================
 
 
-app.use(checkAuth);
-
-/***** set up mongoose *****/
-mongoose.promise = global.promise;
-mongoose.connect('mongodb://heroku_1kx55dgr:6bisnk21n4op7sprqve5ji6s88@ds149905.mlab.com:49905/heroku_1kx55dgr');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-
-const elementsArray = require('./elements.json');
-var anonElements = [];
-
-// takes in an array of integers representing proton numbers
-// and returns an element object
+// ================= FUNCTION TO CREATE ELEMENT FROM PROTON COUNT =================
 let createElement = (elements) => {
-  console.log('creating element')
-  console.log(elements.length)
-  var totalProtons = 0;
+  console.log("CREATING ELEMENT...");
+  console.log(elements.length);
+
+  let totalProtons = 0;
+
   if (elements.length < 2) {
-    totalProtons = (elements[0] * 2);
+    totalProtons = 2 * elements[0];
   }
   else {
-  for (var j = 0; j < elements.length; j++) {
-    totalProtons += elements[j];
+    for (let iterator = 0; iterator < elements.length; iterator++) {
+      totalProtons += elements[iterator];
+    }
   }
-}
-
   return getElementByProtonNumber(totalProtons);
 }
 
-
+// =================== FUNCTION TO GET ELEMENT BY PROTON COUNT ====================
 let getElementByProtonNumber = (protonNumber) => {
-  for (let i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].protons == protonNumber) {
-      return elementsArray[i];
+  for (let iterator = 0; iterator < elementsArray.length; iterator++) {
+    if (elementsArray[iterator].protons == protonNumber) {
+      return elementsArray[iterator];
     }
   }
 }
 
+// ======================= FUNCTION TO GET ELEMENT BY NAME ========================
 let getElementByName = (elementName) => {
-  for (let i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].name == elementName) {
-      return elementsArray[i];
+  for (let iterator = 0; iterator < elementsArray.length; iterator++) {
+    if (elementsArray[iterator].name == elementName) {
+      return elementsArray[iterator];
     }
   }
 }
 
+// =================== FUNCTION TO SORT ELEMENTS BY PROTON COUNT ==================
 let sortByProtonNumber = (elements) => {
-  var protons = [];
-  var returnElements = [];
+  let protons = [];
+  let returnElements = [];
 
-  for (let i = 0; i < elements.length; i++) {
-    protons.push(elements[i].protons);
+  for (let iterator = 0; iterator < elements.length; iterator++) {
+    protons.push(elements[iterator].protons);
   }
 
-  protons.sort((a, b) => a - b);
+  protons.sort((a, b) => a - b);              // Sorts array by differences in proton count
   console.log(protons);
 
-  for (let i = 0; i < protons.length; i++) {
-    returnElements.push(getElementByProtonNumber(protons[i]));
+  for (let iterator = 0; iterator < protons.length; iterator++) {
+    returnElements.push(getElementByProtonNumber(protons[iterator]));
   }
 
   console.log(returnElements)
@@ -133,12 +137,6 @@ let sortByProtonNumber = (elements) => {
 }
 
 let storeNewElement = (element) => { // not in use rn
-    // Attempt to make element saving without login
-    // if element called by function is not in anonElements:
-    //  store new element there
-    //  call this whenever user is not logged in
-    //  reset on log-in
-
     if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:
       anonElements.push(element);               // then push element into array
     }
