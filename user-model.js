@@ -23,7 +23,7 @@ UserSchema.pre('save', function(next){
     this.createdAt = now;
   }
 
-  // ENCRYPT PASSWORD
+  // HASH PASSWORD
   var user = this;
   if (!user.isModified('password')) {
     return next();
