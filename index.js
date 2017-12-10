@@ -55,10 +55,10 @@ let createElement = (elements) => {
   console.log('creating element')
   console.log(elements.length)
   var totalProtons = 0;
-  if (elements.length < 2){
-    totalProtons = (element[0] * 2)
+  if (elements.length < 2) {
+    totalProtons = (elements[0] * 2);
   }
-  else{
+  else {
   for (var j = 0; j < elements.length; j++) {
     totalProtons += elements[j];
   }
@@ -140,9 +140,13 @@ app.post('/users/:id/new-element', (req, res) => {
       console.log("found user")
       var elementsToCombineJSON = req.body.elements; // JSON String
       var elementsToCombine = JSON.parse(elementsToCombineJSON);
+      for (let i = 0; i < elementsToCombine.length; i++) {
+        elementsToCombine[i] = parseInt(elementsToCombine[i]);
+      }
+
       var newElement = createElement(elementsToCombine);
 
-      console.log(newElement.name);
+      console.log("name: " + newElement.name);
 
       // add new element to the user model IFF it's not already there
       var userHasElement = false;
