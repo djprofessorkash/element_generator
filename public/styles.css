@@ -3,6 +3,8 @@
   src: url('./fonts/DELIRIUM.ttf') format('truetype');
 }
 
+
+
 html,body{
   background-color:#52425e;
   color: white;
@@ -25,6 +27,7 @@ html,body{
   height:5em;
   border-radius:50%;
   border:none;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 150%;
   background-color:#4571e0;
   z-index:4;
