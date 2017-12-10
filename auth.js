@@ -1,42 +1,59 @@
-var bodyParser = require('body-parser');
-var User = require('./user-model');
-var jwt = require('jsonwebtoken');
+/* 
+NAME: auth.js
+DESCRIPTION: Authentication file. 
+*/
+
+
+// ================================================================================
+// ================================= INITIALIZERS =================================
+// ================================================================================
+
+
+const bodyParser = require("body-parser");
+const User = require("./user-model");
+const jwt = require("jsonwebtoken");
+
+
+// ================================================================================
+// ============================== MODULE DECLARATION ==============================
+// ================================================================================
+
 
 module.exports = (app) => {
 
-  // post login
-  app.post('/login', function(req, res, next) {
+  // ROUTE TO SEND DATA VIA POST REQUEST TO LOGIN (CHECK USER)
+  app.post("/login", function(req, res, next) {
     User
       .findOne({ username: req.body.username }, "+password", (err, user) => {
         if (!user) { 
-          return res.status(401).send({ message: 'Wrong username or password' });
+          return res.status(401).send({ message: "Wrong username or password" });
         };
 
         user.comparePassword(req.body.password, (err, isMatch) => {
           if (!isMatch) {
-            return res.status(401).send({ message: 'Wrong username or password' });
+            return res.status(401).send({ message: "Wrong username or password" });
           }
 
           let token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: "60 days" });
 
-          res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
-          res.redirect('/');
+          res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
+          res.redirect("/");
         });
       });
   });
 
   // logout
-  app.get('/logout', (req, res) => {
-    res.clearCookie('nToken');
-    res.redirect('/');
+  app.get("/logout", (req, res) => {
+    res.clearCookie("nToken");
+    res.redirect("/");
   });
 
-  app.get('/login', (req, res) => {
-    res.redirect('/');
+  app.get("/login", (req, res) => {
+    res.redirect("/");
   })
 
-  app.get('/sign-up', (req, res) => {
-    res.redirect('/');
+  app.get("/sign-up", (req, res) => {
+    res.redirect("/");
   })
 
   app.get("/profile", (req, res) => {
@@ -45,20 +62,41 @@ module.exports = (app) => {
         .findById(req.user.id)
         .exec()
         .then((user) => {
-          console.log("User Found");
-          res.render("profile");          
+          console.log("USER FOUND.");
+
+          let unlockedElementsInTable = user.unlockedElements;
+          // displayElementsInProfile(unlockedElementsInTable);
+          console.log("UNLOCKED ELEMENTS IN TABLE: ");
+          console.log(unlockedElementsInTable);
+
+          res.render("profile", { currentUser: user, unlockedElementsInTable });          
         }).catch((err) => {
           console.error(err.message);
         });
     }
     else {
-      console.log("User Not Found");
+      console.log("USER NOT FOUND.");
       res.redirect("/");
     }
   })
 
+  // FUNCTION TO SAVE EACH ELEMENT TO ARRAY IN ORDER
+  function displayElementsInProfile(unlockedElements) {
+    let listOfUnlockedElements = [];
+
+    for (let iterator = 0; iterator < unlockedElements.length; iterator++) {
+      console.log(unlockedElements[iterator].name);
+      // console.log(unlockedElements[iterator].abbrv);
+      listOfUnlockedElements.push(unlockedElements[iterator].name);
+    }
+
+    console.log(listOfUnlockedElements);
+    return listOfUnlockedElements;
+  }
+
+
   // sign-up
-  app.post('/sign-up', (req, res, next) => {
+  app.post("/sign-up", (req, res, next) => {
     // create User and JWT
     let user = new User(req.body);
 

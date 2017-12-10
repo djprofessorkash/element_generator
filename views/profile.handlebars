@@ -3,5 +3,12 @@
 </header>
 
 <main>
-  <h1> Profile </h1>
+  <h1> Your Progress </h1>
+  {{#each unlockedElementsInTable}}
+    <h5>{{this.name}} ({{this.abbrv}})</h5>
+  {{/each}}
 </main>
+
+<footer>
+  <button action="/"> HOME </button>
+</footer>
