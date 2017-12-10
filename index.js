@@ -1,47 +1,72 @@
-/*
+// ================================================================================
+// ================================================================================
+// NAME: index.js
+// DESCRIPTION: Main web app file with full-stack integration.
+// ================================================================================
+// ================================================================================
 
-*/
 
-//**** dependencies ****//
-const express = require('express');
-const app = express();
-const hb = require('express-handlebars');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+// ================================================================================
+// ============= IMPORT STATEMENTS, REQUIREMENTS, AND CONFIGURATIONS ==============
+// ================================================================================
 
-require('dotenv').config();
 
-//**** middleware ****//
-app.use(bodyParser.urlencoded({ extended: true }));
+const express = require("express");                     // Requires Express.js
+const app = express();                                  // Configures Express
+const hb = require("express-handlebars");               // Requires Handlebars
+const bodyParser = require("body-parser");              // Requires Body-Parser
+const cookieParser = require("cookie-parser");          // Requires Cookie-Parser
+const bcrypt = require("bcrypt");                       // Requires Blowfish Crypt
+const jwt = require("jsonwebtoken");                    // Requires JSON Web Token
+const mongoose = require("mongoose");                   // Requires Mongoose
+
+require("dotenv").config();                             // Configures .env
+
+
+// ================================================================================
+// ================================= INITIALIZERS =================================
+// ================================================================================
+
+
+app.use(bodyParser.urlencoded({ extended: true }));       // Initializes Body-Parser
 app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(express.static('public'));
+app.use(cookieParser());                                  // Initializes Cookie-Parser
+app.use(express.static("public"));                        // Initializes Express
 
 // set up handlebars
-app.engine('handlebars', hb({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.engine("handlebars", hb({ defaultLayout: "main" }));  // Initializes Handlebars
+app.set("view engine", "handlebars");
 
-// user database model
-let User = require('./user-model');
+const User = require("./user-model");                     // Requires User Model
 
-// check that a user is logged in
+
+// ================================================================================
+// =============================== GLOBAL FUNCTIONS ===============================
+// ================================================================================
+
+
 let checkAuth = (req, res, next) => {
-  //console.log("Checking authentication");
+  // console.log("CHECKING AUTHENTICATION...");
   // make sure the user has a JWT cookie
   if (typeof req.cookies.nToken === undefined || req.cookies.nToken === null) {
     req.user = null;
-    //console.log("no user");
+    // console.log("USER NOT FOUND.");
   } else {
     // if the user has a JWT cookie, decode it and set the user
+    // console.log("USER FOUND.");
     var token = req.cookies.nToken;
     var decodedToken = jwt.decode(token, { complete: true }) || {};
     req.user = decodedToken.payload;
   }
   next();
 }
+
+
+// ================================================================================
+// =============================== GLOBAL FUNCTIONS ===============================
+// ================================================================================
+
+
 app.use(checkAuth);
 
 /***** set up mongoose *****/
