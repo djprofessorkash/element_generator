@@ -1,173 +1,218 @@
-//**** dependencies ****//
-const express = require('express');
-const app = express();
-const hb = require('express-handlebars');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+// ================================================================================
+// ================================================================================
+// NAME: index.js
+// DESCRIPTION: Main web app file with full-stack integration.
+// ================================================================================
+// ================================================================================
 
-require('dotenv').config();
 
-//**** middleware ****//
-app.use(bodyParser.urlencoded({ extended: true }));
+// ================================================================================
+// ============= IMPORT STATEMENTS, REQUIREMENTS, AND CONFIGURATIONS ==============
+// ================================================================================
+
+
+const express = require("express");                     // Requires Express.js
+const app = express();                                  // Configures Express
+const hb = require("express-handlebars");               // Requires Handlebars
+const bodyParser = require("body-parser");              // Requires Body-Parser
+const cookieParser = require("cookie-parser");          // Requires Cookie-Parser
+const bcrypt = require("bcrypt");                       // Requires Blowfish Crypt
+const jwt = require("jsonwebtoken");                    // Requires JSON Web Token
+const mongoose = require("mongoose");                   // Requires Mongoose
+
+require("dotenv").config();                             // Configures .env
+
+
+// ================================================================================
+// ================================= INITIALIZERS =================================
+// ================================================================================
+
+
+app.use(bodyParser.urlencoded({ extended: true }));       // Initializes Body-Parser
 app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(express.static('public'));
+app.use(cookieParser());                                  // Initializes Cookie-Parser
+app.use(express.static("public"));                        // Initializes Express
 
-// set up handlebars
-app.engine('handlebars', hb({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.engine("handlebars", hb({ defaultLayout: "main" }));  // Initializes Handlebars
+app.set("view engine", "handlebars");
 
-// user database model
-let User = require('./user-model');
+mongoose.promise = global.promise;                        // Initialize Mongoose
+mongoose.connect("mongodb://heroku_1kx55dgr:6bisnk21n4op7sprqve5ji6s88@ds149905.mlab.com:49905/heroku_1kx55dgr");
 
-// check that a user is logged in
+var db = mongoose.connection;                             // Connect to database
+db.on("error", console.error.bind(console, "connection error:"));
+
+const User = require("./user-model");                     // Requires User Model
+
+const elementsArray = require('./elements.json');         // Requires Elements JSON (NOTE: Switch to Elements Dictionary JSON)
+
+let port = process.env.PORT || 3000;                      // Initialize local hosting port
+let anonElements = [];                                    // Initialize Elements object for anonymous user
+
+
+// ================================================================================
+// =============================== GLOBAL FUNCTIONS ===============================
+// ================================================================================
+
+
+// ===================== FUNCTION TO CHECK USER AUTHENTICATION ====================
 let checkAuth = (req, res, next) => {
-  //console.log("Checking authentication");
-  // make sure the user has a JWT cookie
+  // console.log("CHECKING AUTHENTICATION...");
+
+  // Ensure user has appropriate authentication token
   if (typeof req.cookies.nToken === undefined || req.cookies.nToken === null) {
     req.user = null;
-    //console.log("no user");
+    // console.log("USER NOT FOUND.");
   } else {
-    // if the user has a JWT cookie, decode it and set the user
-    var token = req.cookies.nToken;
-    var decodedToken = jwt.decode(token, { complete: true }) || {};
+    // If user has JSONWebToken cookie, decode cookie and authorize user
+    // console.log("USER FOUND.");
+    let token = req.cookies.nToken;
+    let decodedToken = jwt.decode(token, { complete: true }) || {};
     req.user = decodedToken.payload;
   }
   next();
 }
-app.use(checkAuth);
 
-/***** set up mongoose *****/
-mongoose.promise = global.promise;
-mongoose.connect('mongodb://heroku_1kx55dgr:6bisnk21n4op7sprqve5ji6s88@ds149905.mlab.com:49905/heroku_1kx55dgr');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+app.use(checkAuth);                   // Initialize user authentication
+require("./auth.js")(app);            // Requires Authentication Controller
 
-const elementsArray = require('./elements.json');
-var anonElements = [];
 
-// takes in an array of integers representing proton numbers
-// and returns an element object
+// ================================================================================
+// =============================== GLOBAL FUNCTIONS ===============================
+// ================================================================================
+
+
+// ================= FUNCTION TO CREATE ELEMENT FROM PROTON COUNT =================
 let createElement = (elements) => {
-  console.log('creating element')
-  console.log(elements.length)
-  var totalProtons = 0;
+  console.log("CREATING ELEMENT...");
+  console.log(elements.length);
+
+  let totalProtons = 0;
+
   if (elements.length < 2) {
-    totalProtons = (elements[0] * 2);
+    totalProtons = 2 * elements[0];
   }
   else {
-  for (var j = 0; j < elements.length; j++) {
-    totalProtons += elements[j];
+    for (let iterator = 0; iterator < elements.length; iterator++) {
+      totalProtons += elements[iterator];
+    }
   }
-}
-
   return getElementByProtonNumber(totalProtons);
 }
 
-
+// =================== FUNCTION TO GET ELEMENT BY PROTON COUNT ====================
 let getElementByProtonNumber = (protonNumber) => {
-  for (let i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].protons == protonNumber) {
-      return elementsArray[i];
+  for (let iterator = 0; iterator < elementsArray.length; iterator++) {
+    if (elementsArray[iterator].protons == protonNumber) {
+      return elementsArray[iterator];
     }
   }
 }
 
+// ======================= FUNCTION TO GET ELEMENT BY NAME ========================
 let getElementByName = (elementName) => {
-  for (let i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].name == elementName) {
-      return elementsArray[i];
+  for (let iterator = 0; iterator < elementsArray.length; iterator++) {
+    if (elementsArray[iterator].name == elementName) {
+      return elementsArray[iterator];
     }
   }
 }
 
+// =================== FUNCTION TO SORT ELEMENTS BY PROTON COUNT ==================
 let sortByProtonNumber = (elements) => {
-  var protons = [];
-  var returnElements = [];
+  let protons = [];
+  let returnElements = [];
 
-  for (let i = 0; i < elements.length; i++) {
-    protons.push(elements[i].protons);
+  for (let iterator = 0; iterator < elements.length; iterator++) {
+    protons.push(elements[iterator].protons);
   }
 
-  protons.sort((a, b) => a - b);
+  protons.sort((a, b) => a - b);              // Sorts array by differences in proton count
   console.log(protons);
 
-  for (let i = 0; i < protons.length; i++) {
-    returnElements.push(getElementByProtonNumber(protons[i]));
+  for (let iterator = 0; iterator < protons.length; iterator++) {
+    returnElements.push(getElementByProtonNumber(protons[iterator]));
   }
 
   console.log(returnElements)
   return returnElements;
 }
 
-let storeNewElement = (element) => { // not in use rn
-    // Attempt to make element saving without login
-    // if element called by function is not in anonElements:
-    //  store new element there
-    //  call this whenever user is not logged in
-    //  reset on log-in
-
-    if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:
-      anonElements.push(element);               // then push element into array
+// ================ FUNCTION TO STORE ELEMENTS FOR ANONYMOUS USERS ================
+// ============================= (CURRENTLY DISUSED) ==============================
+let storeNewElement = (element) => {
+    if (!anonElements.includes(element)) {
+      anonElements.push(element);
     }
 
-    // look up user by id
+    // Look up user ID, then save anonymous element to common profile
     User
       .findById(arguments[1].id)
       .exec()
       .then((user) => {
-        console.log('saving new element to user model')
-        console.log(user.unlockedElements);  // before
+        console.log("SAVING NEW ELEMENT TO ANONYMOUS USER MODEL.");
+        // console.log(user.unlockedElements);
+
         user.unlockedElements.push(element);
-        user.markModified('unlockedElements');
-        console.log(user.unlockedElements);  // after
-      });
-    //} else {
-      console.log('whoops');
-    //}
+        user.markModified("unlockedElements");
+
+        // console.log(user.unlockedElements);
+      }).catch((err) => {
+        console.log("ANONYMOUS ELEMENT STORAGE ERROR.");
+        console.error(err.message);
+      })
 }
 
-// This request holds the logic to add elements to user's account
-app.post('/users/:id/new-element', (req, res) => {
 
+// ================================================================================
+// ============================== RESOURCEFUL ROUTES ==============================
+// ================================================================================
+
+
+// ================ POST REQUEST TO ADD ELEMENT(S) TO USER ACCOUNT ================
+app.post("/users/:id/new-element", (req, res) => {
+
+  // Find user ID, then save calculated element to user profile if not already there
   User
     .findById(req.params.id)
     .exec()
     .then((user) => {
-      console.log("found user")
-      var elementsToCombineJSON = req.body.elements; // JSON String
-      var elementsToCombine = JSON.parse(elementsToCombineJSON);
-      for (let i = 0; i < elementsToCombine.length; i++) {
-        elementsToCombine[i] = parseInt(elementsToCombine[i]);
+      console.log("USER FOUND.");
+
+      let elementsToCombineJSON = req.body.elements;
+      let elementsToCombine = JSON.parse(elementsToCombineJSON);
+
+      for (let iterator = 0; iterator < elementsToCombine.length; iterator++) {
+        elementsToCombine[iterator] = parseInt(elementsToCombine[iterator]);
       }
 
-      var newElement = createElement(elementsToCombine);
+      let newElement = createElement(elementsToCombine);
+      console.log("NEW ELEMENT NAME: " + newElement.name);
 
-      console.log("name: " + newElement.name);
+      // If new element is not already unlocked, add it to user profile
+      let userHasElement = false;
 
-      // add new element to the user model IFF it's not already there
-      var userHasElement = false;
-      for (i = 0; i < user.unlockedElements.length; i++) {
-        if (user.unlockedElements[i].protons == newElement.protons) {
+      for (let iterator = 0; iterator < user.unlockedElements.length; iterator++) {
+        if (user.unlockedElements[iterator].protons == newElement.protons) {
           userHasElement = true;
         }
       }
       if (!userHasElement) {
         user.unlockedElements.push(newElement);
-        user.markModified('unlockedElements');
+        user.markModified("unlockedElements");
         user.save();
 
-        console.log("saving new element")
+        console.log("SAVING NEW ELEMENT...");
       }
       res.send(newElement.name);
     });
 });
 
-app.get('/', function(req, res) {
+// =============== GET REQUEST TO INITIALIZE USER'S ELEMENT STORAGE ===============
+app.get("/", (req, res) => {
   if (req.user) {
+
+    // Initialize starting elemental storage for authenticated or anonymous user
     User
     .findById(req.user.id)
     .exec()
@@ -175,38 +220,38 @@ app.get('/', function(req, res) {
         var elementsToCombine = sortByProtonNumber(user.unlockedElements)
         var elementsJSON = JSON.stringify(elementsToCombine);
 
-        // if the user doesn't have an elements array, initialize it
         if (!elementsToCombine || elementsToCombine.length == 0) {
-          var h = getElementByName('Hydrogen');
+          let h = getElementByName("Hydrogen");
           user.unlockedElements.push(h);
           user.save();
-          elementsToCombine = [h];
-          var elementsJSON = JSON.stringify(elementsToCombine); // could also use reducer
-        }
-        res.render('home', {elementsToCombine, elementsJSON, currentUser: req.user.id});
-    })
-  } else {
-    console.log("user not found")
 
-    // Checks to see if no anonymous elements have been stored and, if so, stores hydrogen
+          elementsToCombine = [h];
+          var elementsJSON = JSON.stringify(elementsToCombine); // OPTION: Could use Reducer here
+        }
+        res.render("home", {elementsToCombine, elementsJSON, currentUser: req.user.id});
+    }); 
+  } 
+  else {
+    console.log("USER NOT FOUND.");
+
+    // Checks to see if no anonymous elements have been stored and, if so, stores Hydrogen
     if (!anonElements || anonElements.length == 0) {
-      var h = getElementByName('Hydrogen');
+      var h = getElementByName("Hydrogen");
       storeNewElement(h);
+
       elementsToCombine = [h];
       var elementsJSON = JSON.stringify(elementsToCombine);
     }
+
     elementsToCombine = sortByProtonNumber(elementsToCombine);
-    console.log(elementsJSON)
-    // get anonElements and render
-    res.render('home', {elements: elementsToCombine, elementsJSON});
+    console.log(elementsJSON);
+
+    // Get and render stored anonymous elements
+    res.render("home", {elements: elementsToCombine, elementsJSON});
   }
-})
+});
 
-// authentication controller
-require('./auth.js')(app);
-
-var PORT = process.env.PORT || 3000;
-
-app.listen(PORT, function(req, res) {
-  console.log('listening');
+// ========================= SERVER LISTENER ON LOCAL PORT ========================
+app.listen(port, (req, res) => {
+  console.log(`NUCLEUS APP LISTENING ON PORT ${port}.`);
 });

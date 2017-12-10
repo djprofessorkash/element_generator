@@ -1,14 +1,20 @@
+<!-- ========================================================================== -->
+<!-- ========================================================================== -->
+<!-- NAME: profile.handlebars                                                   -->
+<!-- DESCRIPTION: Handlebars file for laying out user profile.                  -->
+<!-- ========================================================================== -->
+<!-- ========================================================================== -->
+
+
+<!-- ====================== DISPLAY HEADER WITH LOGINBAR ====================== -->
 <header>
   {{>loginbar }}
 </header>
 
+<!-- ================ DISPLAY MAIN CONTENT WITH ELEMENT TABLE ================= -->
 <main>
   <h1> Your Progress </h1>
   {{#each unlockedElementsInTable}}
     <h5>{{this.name}} ({{this.abbrv}})</h5>
   {{/each}}
 </main>
-
-<footer>
-  <button action="/"> HOME </button>
-</footer>

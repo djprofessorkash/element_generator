@@ -1,50 +1,37 @@
+<!-- ========================================================================== -->
+<!-- ========================================================================== -->
+<!-- NAME: home.handlebars                                                      -->
+<!-- DESCRIPTION: Handlebars file for laying out home screen.                   -->
+<!-- ========================================================================== -->
+<!-- ========================================================================== -->
+
+
+<!-- ====================== DISPLAY HEADER WITH LOGINBAR ====================== -->
 <header>
   {{>loginbar }}
 </header>
 
+<!-- ============== DISPLAY MAIN CONTENT WITH ELEMENTAL FUSIONS =============== -->
 <main>
-
-  <div class='stars'>
-  <p>
-    Unlocked Elements:
-    {{#each elementsToCombine}}
-      {{this.name}} {{#unless @last}} + {{/unless}}
-    {{/each}}
-  </p>
-
-  <form>
-  {{#each elementsToCombine}}
-    <button class="unlocked_element" type="button" value="{{this.protons}}">{{this.name}}</button>
- {{/each}}
-    <!-- <select id="elementOne">
-      <option value="" disabled selected> Select First Element to React </option>
+  <div class="stars">
+    <form class="elementButtons">
       {{#each elementsToCombine}}
-        <option value="{{this.protons}}"> {{this.name}} </option>
+        <button class="unlocked_element" type="button" value="{{this.protons}}">{{this.name}}</button>
       {{/each}}
-    </select>
 
-    <select id="elementTwo">
-      <option value="" disabled selected> Select Second Element </option>
-      {{#each elementsToCombine}}
-        <option value="{{this.protons}}"> {{this.name}} </option>
-      {{/each}}
-    </select> -->
-
-    <div class='container'>
-    <button
-      type="submit"
-      class='pulse-button react-button'
-      data-current-user="{{currentUser}}">
-        React!
-    </button>
+      <div class="container">
+        <button
+          type="submit"
+          class="pulse-button react-button"
+          data-current-user="{{currentUser}}">
+          React!
+        </button>
+      </div>
+    </form>
   </div>
-  </form>
-  </div>
-
 </main>
 
-
-<!-- Modal Structure -->
+<!-- ====================== SETTING UP MODAL STRUCTURES ======================= -->
 <div id="modalL" class="modal">
   <form class="modal-content" method="post" action="/login">
     <input name="username" placeholder="username"/>
@@ -54,7 +41,7 @@
     </div>
   </form>
 </div>
-<!-- Modal Structure -->
+
 <div id="modalS" class="modal">
   <form class="modal-content" method="post" action="/sign-up">
     <input name="username" placeholder="username"/>
