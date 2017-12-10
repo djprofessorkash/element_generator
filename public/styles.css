@@ -31,7 +31,7 @@ html,body{
 }
 
 .unlocked_element:hover{
-  border:1px solid #86c631;
+  border:2px solid #21447c;
 }
 
 .selected {
