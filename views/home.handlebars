@@ -3,6 +3,8 @@
 </header>
 
 <main>
+  <div class='stars'>
+  </div>
   <p>
     Unlocked Elements:
     {{#each elementsToCombine}}
@@ -11,6 +13,9 @@
   </p>
 
   <form>
+  {{#each elementsToCombine}}
+    <button value="{{this.protons}}" class='unlocked_element'>{{this.name}}</button>
+ {{/each}}
     <select id="elementOne">
       <option value="" disabled selected> Select First Element to React </option>
       {{#each elementsToCombine}}
@@ -25,13 +30,16 @@
       {{/each}}
     </select>
 
+    <div class='container'>
     <button
       type="submit"
       class='pulse-button react-button'
       data-current-user="{{currentUser}}">
         React!
     </button>
+  </div>
   </form>
+
 </main>
 
 

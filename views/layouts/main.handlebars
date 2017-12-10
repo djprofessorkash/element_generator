@@ -15,15 +15,51 @@
   <!-- scripts -->
   <script>
 
+  /*
+  create an array of the elements with the selected class
+  this array will be used to create the new element
+  can only have up to 2 selections at a time, so if less than 2 the
+  proton number is pushed to the array
+  */
+
   $(() => {
 
     $('.modal').modal();
      $('select').material_select();
 
+     var getChecked = () => {
+       var currentlySelected = [];
+       for (let i = 0; i < elementsToCombine.length; i++){
+         if ($('form > .unlocked_element:nth-child(' + String(i+1) + ')').hasClass('selected')){
+           currentlySelected.push(elementsToCombine[i]);
+    }
+  }
+    console.log(currentlySelected);
+    return currentlySelected;
+
+}
+
+$("form > .unlocked_element").click(function(){
+
+  if (getChecked().length < 2){
+    $(this).toggleClass("selected");
+
+  }
+
+  else if(getChecked().length == 2){
+    if ($(this).hasClass("selected")){
+      $(this).removeClass("selected");
+    }
+  }
+
+})
+
     // react elements button @Aakash
     $('body').on('click', '.react-button', function(e) {
       e.preventDefault();
       console.log("calling react button function");
+
+
 
       // get selected elements from the form
       // TODO: switch to clickable buttons instead of form
