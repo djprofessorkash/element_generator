@@ -44,8 +44,6 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 const User = require("./user-model");                     // Requires User Model
 
-require('./auth.js')(app);                                // Requires Authentication Controller
-
 const elementsArray = require('./elements.json');         // Requires Elements JSON (NOTE: Switch to Elements Dictionary JSON)
 
 let port = process.env.PORT || 3000;                      // Initialize local hosting port
@@ -75,7 +73,8 @@ let checkAuth = (req, res, next) => {
   next();
 }
 
-app.use(checkAuth);           // Initialize user authentication
+app.use(checkAuth);                   // Initialize user authentication
+require("./auth.js")(app);            // Requires Authentication Controller
 
 
 // ================================================================================
@@ -171,7 +170,7 @@ let storeNewElement = (element) => {
 
 
 // ================ POST REQUEST TO ADD ELEMENT(S) TO USER ACCOUNT ================
-app.post('/users/:id/new-element', (req, res) => {
+app.post("/users/:id/new-element", (req, res) => {
 
   // Find user ID, then save calculated element to user profile if not already there
   User
@@ -200,51 +199,59 @@ app.post('/users/:id/new-element', (req, res) => {
       }
       if (!userHasElement) {
         user.unlockedElements.push(newElement);
-        user.markModified('unlockedElements');
+        user.markModified("unlockedElements");
         user.save();
 
-        console.log("saving new element")
+        console.log("SAVING NEW ELEMENT...");
       }
       res.send(newElement.name);
     });
 });
 
-app.get('/', function(req, res) {
+// =============== GET REQUEST TO INITIALIZE USER'S ELEMENT STORAGE ===============
+app.get("/", function(req, res) {
   if (req.user) {
+
+    // Initialize starting elemental storage for authenticated or anonymous user
     User
     .findById(req.user.id)
     .exec()
     .then((user) => {
-        var elementsToCombine = sortByProtonNumber(user.unlockedElements)
-        var elementsJSON = JSON.stringify(elementsToCombine);
+        let elementsToCombine = sortByProtonNumber(user.unlockedElements)
+        let elementsJSON = JSON.stringify(elementsToCombine);
 
-        // if the user doesn't have an elements array, initialize it
         if (!elementsToCombine || elementsToCombine.length == 0) {
-          var h = getElementByName('Hydrogen');
+          let h = getElementByName("Hydrogen");
           user.unlockedElements.push(h);
           user.save();
+
           elementsToCombine = [h];
-          var elementsJSON = JSON.stringify(elementsToCombine); // could also use reducer
+          let elementsJSON = JSON.stringify(elementsToCombine); // OPTION: Could use Reducer here
         }
-        res.render('home', {elementsToCombine, elementsJSON, currentUser: req.user.id});
-    })
-  } else {
-    console.log("user not found")
+        res.render("home", {elementsToCombine, elementsJSON, currentUser: req.user.id});
+    }); 
+  } 
+  else {
+    console.log("USER NOT FOUND.");
 
-    // Checks to see if no anonymous elements have been stored and, if so, stores hydrogen
+    // Checks to see if no anonymous elements have been stored and, if so, stores Hydrogen
     if (!anonElements || anonElements.length == 0) {
-      var h = getElementByName('Hydrogen');
+      let h = getElementByName("Hydrogen");
       storeNewElement(h);
-      elementsToCombine = [h];
-      var elementsJSON = JSON.stringify(elementsToCombine);
-    }
-    elementsToCombine = sortByProtonNumber(elementsToCombine);
-    console.log(elementsJSON)
-    // get anonElements and render
-    res.render('home', {elements: elementsToCombine, elementsJSON});
-  }
-})
 
-app.listen(port, function(req, res) {
-  console.log('listening');
+      elementsToCombine = [h];
+      let elementsJSON = JSON.stringify(elementsToCombine);
+    }
+
+    elementsToCombine = sortByProtonNumber(elementsToCombine);
+    console.log(elementsJSON);
+
+    // Get and render stored anonymous elements
+    res.render("home", {elements: elementsToCombine, elementsJSON});
+  }
+});
+
+// ========================= SERVER LISTENER ON LOCAL PORT ========================
+app.listen(port, (req, res) => {
+  console.log(`NUCLEUS APP LISTENING ON PORT ${port}.`);
 });
