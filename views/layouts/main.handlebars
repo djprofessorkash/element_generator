@@ -29,11 +29,13 @@
 
      var getChecked = () => {
        var currentlySelected = [];
-       for (let i = 0; i < elementsToCombine.length; i++){
-         if ($('form > .unlocked_element:nth-child(' + String(i+1) + ')').hasClass('selected')){
-           currentlySelected.push(elementsToCombine[i]);
-    }
-  }
+       //for (let i = 0; i < elementsToCombine.length; i++){
+       $('unlocked_element').each(function(){
+         if ($(this).hasClass('selected')){
+           currentlySelected.push($(this).val());
+         }
+       })
+
     console.log(currentlySelected);
     return currentlySelected;
 
