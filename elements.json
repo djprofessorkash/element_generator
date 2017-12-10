@@ -3,7 +3,7 @@
     "name": "Hydrogen",
     "abbrv": "H",
     "protons": 1,
-    "electrons": 0,
+    "electrons": 1,
     "neutrons": 0,
     "description": "Sample Hydrogen description"    
   },
