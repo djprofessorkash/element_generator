@@ -29,7 +29,7 @@ module.exports = (app) => {
 
 
     // ================ FUNCTION TO SEQUENTIALLY SAVE EACH ELEMENT ================
-    function displayElementsInProfile(unlockedElements) {
+    let displayElementsInProfile = (unlockedElements) => {
       let listOfUnlockedElements = [];
   
       for (let iterator = 0; iterator < unlockedElements.length; iterator++) {
