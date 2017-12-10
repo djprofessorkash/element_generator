@@ -16,6 +16,10 @@ The Element Generator is an educational simulator that teaches the basics of che
 - Laurel Machak
 - Aakash Sudhakar
 
+## CREDITS
+- Alan Davis, Make School Instructor and Project Mentor
+- @Bowserinator, the person we got the periodic table JSON from
+
 ## FEATURES
 - Interactive user-guided adventure in discovering the elements of the universe.
 - Point-based system in measuring student progress and learning growth.
