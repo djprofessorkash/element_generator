@@ -9,6 +9,11 @@ html,body{
   font-family: delirium;
 }
 
+.modal {
+  font-family: sans-serif !important;
+  color: black;
+}
+
 .elementButtons {
   margin-top: 60px;
 }
