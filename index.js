@@ -44,8 +44,11 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 const User = require("./user-model");                     // Requires User Model
 
+require('./auth.js')(app);                                // Requires Authentication Controller
+
 const elementsArray = require('./elements.json');         // Requires Elements JSON (NOTE: Switch to Elements Dictionary JSON)
 
+let port = process.env.PORT || 3000;                      // Initialize local hosting port
 let anonElements = [];                                    // Initialize Elements object for anonymous user
 
 
@@ -136,49 +139,62 @@ let sortByProtonNumber = (elements) => {
   return returnElements;
 }
 
-let storeNewElement = (element) => { // not in use rn
-    if (!anonElements.includes(element)) {      // if element called by function is not in anonElements:
-      anonElements.push(element);               // then push element into array
+// ================ FUNCTION TO STORE ELEMENTS FOR ANONYMOUS USERS ================
+// ============================= (CURRENTLY DISUSED) ==============================
+let storeNewElement = (element) => {
+    if (!anonElements.includes(element)) {
+      anonElements.push(element);
     }
 
-    // look up user by id
+    // Look up user ID, then save anonymous element to common profile
     User
       .findById(arguments[1].id)
       .exec()
       .then((user) => {
-        console.log('saving new element to user model')
-        console.log(user.unlockedElements);  // before
+        console.log("SAVING NEW ELEMENT TO ANONYMOUS USER MODEL.");
+        // console.log(user.unlockedElements);
+
         user.unlockedElements.push(element);
-        user.markModified('unlockedElements');
-        console.log(user.unlockedElements);  // after
-      });
-    //} else {
-      console.log('whoops');
-    //}
+        user.markModified("unlockedElements");
+
+        // console.log(user.unlockedElements);
+      }).catch((err) => {
+        console.log("ANONYMOUS ELEMENT STORAGE ERROR.");
+        console.error(err.message);
+      })
 }
 
-// This request holds the logic to add elements to user's account
+
+// ================================================================================
+// ============================== RESOURCEFUL ROUTES ==============================
+// ================================================================================
+
+
+// ================ POST REQUEST TO ADD ELEMENT(S) TO USER ACCOUNT ================
 app.post('/users/:id/new-element', (req, res) => {
 
+  // Find user ID, then save calculated element to user profile if not already there
   User
     .findById(req.params.id)
     .exec()
     .then((user) => {
-      console.log("found user")
-      var elementsToCombineJSON = req.body.elements; // JSON String
-      var elementsToCombine = JSON.parse(elementsToCombineJSON);
-      for (let i = 0; i < elementsToCombine.length; i++) {
-        elementsToCombine[i] = parseInt(elementsToCombine[i]);
+      console.log("USER FOUND.");
+
+      let elementsToCombineJSON = req.body.elements;
+      let elementsToCombine = JSON.parse(elementsToCombineJSON);
+
+      for (let iterator = 0; iterator < elementsToCombine.length; iterator++) {
+        elementsToCombine[iterator] = parseInt(elementsToCombine[iterator]);
       }
 
-      var newElement = createElement(elementsToCombine);
+      let newElement = createElement(elementsToCombine);
+      console.log("NEW ELEMENT NAME: " + newElement.name);
 
-      console.log("name: " + newElement.name);
+      // If new element is not already unlocked, add it to user profile
+      let userHasElement = false;
 
-      // add new element to the user model IFF it's not already there
-      var userHasElement = false;
-      for (i = 0; i < user.unlockedElements.length; i++) {
-        if (user.unlockedElements[i].protons == newElement.protons) {
+      for (let iterator = 0; iterator < user.unlockedElements.length; iterator++) {
+        if (user.unlockedElements[iterator].protons == newElement.protons) {
           userHasElement = true;
         }
       }
@@ -229,11 +245,6 @@ app.get('/', function(req, res) {
   }
 })
 
-// authentication controller
-require('./auth.js')(app);
-
-var PORT = process.env.PORT || 3000;
-
-app.listen(PORT, function(req, res) {
+app.listen(port, function(req, res) {
   console.log('listening');
 });
