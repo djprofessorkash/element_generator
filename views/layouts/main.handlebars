@@ -41,35 +41,38 @@
       the element's proton number is pushed to array for twin fusion reaction.
       */
 
-      $(() => {
+      $(function() {
         $(".modal").modal();
         $("select").material_select();
 
         // ================= FUNCTION TO CHECK SELECTED ELEMENT =================
-        let getChecked = () => {
-          let currentlySelected = [];
+        function getChecked() {
+          var currentlySelected = [];
 
           // for (let i = 0; i < elementsToCombine.length; i++) {     // What is this? --Ka$h
 
-          $(".unlocked_element").each(() => {
+          $(".unlocked_element").each(function() {
             if ($(this).hasClass("selected")) {
               currentlySelected.push($(this).val());
             }
           });
 
+          console.log("CURRENT SELECTED ELEMENTS:");
           console.log(currentlySelected);
           return currentlySelected;
         };
 
         // ================ LOGIC TO ADD/REMOVE SELECTION CLASS =================
-        $(".unlocked_element").click(() => {
+        $(".unlocked_element").click(function() {
 
           if (getChecked().length < 2) {
+            console.log("TOGGLE SELECTION CLASS.");
             $(this).toggleClass("selected");
           }
 
           else if (getChecked().length == 2) {
             if ($(this).hasClass("selected")) {
+              console.log("REMOVE SELECTED CLASS.");
               $(this).removeClass("selected");
             }
           }
@@ -78,11 +81,11 @@
         });
 
         // ========= LOGIC TO LOAD NEW ELEMENT ON REACT BUTTON FUNCTION =========
-        $("body").on("click", ".react-button", (e) => {
+        $("body").on("click", ".react-button", function(e) {
           e.preventDefault();
           console.log("CALLING REACT BUTTON FUNCTIONALITY...");
 
-          let elements = getChecked();
+          var elements = getChecked();
           elements = JSON.stringify(elements);                // Retrieve loaded elements
           const userId = $(this).attr("data-current-user");   // Get data from button
 
@@ -92,11 +95,11 @@
             console.log(elements);
 
             // If user exists, send POST request to server to make new user element
-            $.post("/users/" + userId + "/new-element", { elements }, (newElementName) => {
+            $.post("/users/" + userId + "/new-element", { elements }, function(newElementName) {
               console.log("NEW USER ELEMENT: " + newElementName);
               Materialize.toast("You just created " + newElementName, 2000);
 
-              setTimeout(() => { 
+              setTimeout(function() { 
                 location.reload(); 
               }, 2000);
             });
