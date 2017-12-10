@@ -125,7 +125,7 @@ let storeNewElement = (element) => { // not in use rn
     //}
 }
 
-// This request holds the logic to add elements to user's profile
+// This request holds the logic to add elements to user's account
 app.post('/users/:id/new-element', (req, res) => {
 
   User
