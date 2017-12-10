@@ -1,6 +1,6 @@
 /*
 NAME: auth.js
-DESCRIPTION: Authentication file.
+DESCRIPTION: Authentication file with routes and logic for user access.
 */
 
 
@@ -21,7 +21,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports = (app) => {
 
-  // ROUTE TO SEND DATA VIA POST REQUEST TO LOGIN (CHECK USER)
+  // ========= ROUTE TO SEND DATA VIA POST REQUEST TO LOGIN (CHECK USER) ==========
   app.post("/login", function(req, res, next) {
     User
       .findOne({ username: req.body.username }, "+password", (err, user) => {
@@ -42,16 +42,18 @@ module.exports = (app) => {
       });
   });
 
-  // logout
+  // ============================= ROUTE TO LOG OUT USER ============================
   app.get("/logout", (req, res) => {
     res.clearCookie("nToken");
     res.redirect("/");
   });
 
+  // ============================= ROUTE TO LOG IN USER =============================
   app.get("/login", (req, res) => {
     res.redirect("/");
   })
 
+  // ==============================  ==============================
   app.get("/sign-up", (req, res) => {
     res.redirect("/");
   })
