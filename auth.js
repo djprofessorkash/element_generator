@@ -23,15 +23,16 @@ module.exports = (app) => {
 
   // ========= ROUTE TO SEND DATA VIA POST REQUEST TO LOGIN (CHECK USER) ==========
   app.post("/login", function(req, res, next) {
-    User
-      .findOne({ username: req.body.username }, "+password", (err, user) => {
+    User.findOne({ username: req.body.username }, "+password", (err, user) => {
         if (!user) {
-          return res.status(401).send({ message: "Wrong username or password" });
+          console.log('could not find user')
+          return res.render('home', {warningMessage: 'Wrong username or password'})
         };
 
         user.comparePassword(req.body.password, (err, isMatch) => {
           if (!isMatch) {
-            return res.status(401).send({ message: "Wrong username or password" });
+            console.log('password did not match')
+            return res.render('home', {warningMessage: 'Wrong username or password'})
           }
 
           let token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: "60 days" });
