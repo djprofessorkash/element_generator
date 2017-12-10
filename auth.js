@@ -53,7 +53,7 @@ module.exports = (app) => {
   });
 
   // ====== POST REQUEST TO SEND DATA VIA POST REQUEST TO LOGIN (CHECK USER) ======
-  app.post("/login", function(req, res, next) {
+  app.post("/login", function(req, res, next) {     // Do not use ES6 with function call; destroys functionality
 
     // Check if user exists from login data, then successfully login or redirect
     User

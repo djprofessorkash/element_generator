@@ -23,10 +23,10 @@
   </head>
 
   <body>
-    <!-- ======================= DISPLAY BODY CONTENT ======================= -->
+    <!-- ======================== DISPLAY BODY CONTENT ======================== -->
     {{{body}}}
 
-    <!-- ================= SCRIPTS FOR JQUERY FUNCTIONALITY ================= -->
+    <!-- ================== SCRIPTS FOR JQUERY FUNCTIONALITY ================== -->
     <script>
 
       /*
@@ -45,7 +45,7 @@
         $(".modal").modal();
         $("select").material_select();
 
-        // ================= FUNCTION TO CHECK SELECTED ELEMENT =================
+        // ================== FUNCTION TO CHECK SELECTED ELEMENT ==================
         function getChecked() {
           var currentlySelected = [];
 
@@ -62,7 +62,7 @@
           return currentlySelected;
         };
 
-        // ================ LOGIC TO ADD/REMOVE SELECTION CLASS =================
+        // ================= LOGIC TO ADD/REMOVE SELECTION CLASS ==================
         $(".unlocked_element").click(function() {
 
           if (getChecked().length < 2) {
@@ -80,7 +80,7 @@
           console.log(getChecked());
         });
 
-        // ========= LOGIC TO LOAD NEW ELEMENT ON REACT BUTTON FUNCTION =========
+        // ========== LOGIC TO LOAD NEW ELEMENT ON REACT BUTTON FUNCTION ==========
         $("body").on("click", ".react-button", function(e) {
           e.preventDefault();
           console.log("CALLING REACT BUTTON FUNCTIONALITY...");
@@ -89,7 +89,7 @@
           elements = JSON.stringify(elements);                // Retrieve loaded elements
           const userId = $(this).attr("data-current-user");   // Get data from button
 
-          // ================== LOGIC TO LOAD NEW USER ELEMENT ==================
+          // =================== LOGIC TO LOAD NEW USER ELEMENT ===================
           if (userId != "" && userId != undefined) {
             console.log("CALLING POST REQUEST FOR NEW USER ELEMENT...");
             console.log(elements);
