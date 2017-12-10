@@ -9,6 +9,26 @@ html,body{
   margin: 0 auto 0;
 }
 
+/* unlocked elements buttons */
+.unlocked_element{
+  width:8em;
+  height:8em;
+  border-radius:50px;
+  border:none;
+  background-color:#c9e5e8;
+  z-index:2;
+}
+
+.unlocked_element:hover{
+  border:1px solid #86c631;
+}
+
+.selected{
+  background-color:#86c631;
+}
+
+
+
 .pulse-button {
 
   position: relative;
@@ -136,3 +156,22 @@ header a, a:visited {
   -webkit-animation:move-clouds-back 200s linear infinite;
   animation:move-clouds-back 200s linear infinite;
 }
+
+/* unlocked elements buttons
+.unlocked_element{
+  width:8em;
+  height:8em;
+  border-radius:50px;
+  border:none;
+  background-color:#c9e5e8;
+  z-index:2;
+}
+
+.unlocked_element:hover{
+  border:1px solid #86c631;
+}
+
+.selected{
+  background-color:#86c631;
+}
+*/
