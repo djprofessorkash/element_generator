@@ -209,7 +209,7 @@ app.post("/users/:id/new-element", (req, res) => {
 });
 
 // =============== GET REQUEST TO INITIALIZE USER'S ELEMENT STORAGE ===============
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   if (req.user) {
 
     // Initialize starting elemental storage for authenticated or anonymous user
