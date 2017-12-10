@@ -1,5 +1,5 @@
 html,body{
-  background-color:#1b212b;
+  background-color:#52425e;
   color: white;
 }
 
@@ -41,7 +41,7 @@ html,body{
     padding: 0;
 }
 header {
-    background-color:rgba(33, 33, 33, 0.9);
+    background-color:rgba(24, 17, 30, 0.9);
     color:#ffffff;
     display:block;
     font: 14px/1.3 Arial,sans-serif;
