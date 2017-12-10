@@ -12,25 +12,29 @@ Education Simulator for Basic Chemistry
 The Element Generator is an educational simulator that teaches the basics of chemical interactions from the start of the known universe to modern day. 
 
 ## AUTHORS
-- Alirie Gray
-- Laurel Machak
-- Aakash Sudhakar
+- <i>Alirie Gray</i>, Junior Full-Stack Web Developer
+- <i>Laurel Machak</i>, Junior Full-Stack Web Developer
+- <i>Aakash (Kash) Sudhakar</i>, Junior Full-Stack Web Developer
 
 ## CREDITS
-- Alan Davis, Make School Instructor and Project Mentor
-- @Bowserinator, the person we got the periodic table JSON from
+- <i>Alan Davis</i>, Make School Instructor and Project Mentor
+- <i>@Bowserinator</i>, the person we got the periodic table JSON from
 
 ## FEATURES
 - Interactive user-guided adventure in discovering the elements of the universe.
 - Point-based system in measuring student progress and learning growth.
 
-## FRAMEWORKS/APIS
-- HTML/CSS, JavaScript
-- JQuery, AJAX, Handlebars
+## TECHNOLOGY
+- <b>LANGUAGES</b>: HTML, CSS, JavaScript
+- <b>FRAMEWORKS</b>: JQuery, AJAX, Handlebars, Express, Node, MongoDB
 
-### TODO
-- Laurel: Get buttons to work on home page for unlocked elements
-- Alirie: React button to work on home page
-- Aakash: Periodic Table on Profile page for unlocked elements
-- Description pages for each element
-
+## TODO
+- <i>Laurel</i>:
+> - <s>Get buttons to work on home page for unlocked elements</s>
+> - Arrange unlocked element buttons and React button as planets around star
+- <i>Alirie</i>: 
+> - <s>Get React button to work on home page</s>
+> - <s>Model React button to look like an animated star</s>
+- <i>Kash</i>: 
+> - Create Periodic Table on Profile page for unlocked elements
+> - Create description pages for each element
