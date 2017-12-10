@@ -34,10 +34,9 @@ html,body{
 }
 
 .pulse-button {
-
-  position: relative;
-  width: 100px;
-  height: 100px;
+  margin-top: 120px;
+  width: 200px;
+  height: 200px;
   border: none;
   box-shadow: 0 0 0 0 rgba(255, 216, 76, 0.7);
   border-radius: 50%;
