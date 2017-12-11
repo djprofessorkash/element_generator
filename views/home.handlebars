@@ -19,6 +19,7 @@
         <button class="unlocked_element" type="button" value="{{this.protons}}">{{this.name}}</button>
       {{/each}}
 
+<<<<<<< Updated upstream
       <div class="container">
         <button
           type="submit"
@@ -29,6 +30,27 @@
       </div>
     </form>
   </div>
+=======
+  <div class='stars'>
+    <div class="wrapper">
+  <form class="elementButtons">
+  {{#each elementsToCombine}}
+    <button class="unlocked_element" type="button" value="{{this.protons}}">{{this.name}}</button>
+ {{/each}}
+
+    <div class='container'>
+    <button
+      type="submit"
+      class='pulse-button react-button'
+      data-current-user="{{currentUser}}">
+        React!
+    </button>
+  </div>
+  </form>
+</div>
+  </div>
+
+>>>>>>> Stashed changes
 </main>
 
 <!-- ====================== SETTING UP MODAL STRUCTURES ======================= -->
