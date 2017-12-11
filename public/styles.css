@@ -57,6 +57,7 @@ html,body{
   font-size: 400%;
   background-size:cover;
   background-repeat: no-repeat;
+  background:  -webkit-radial-gradient(circle, #ffd84c, #ffba4c, #ffab4c);
   cursor: pointer;
   -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
   -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
@@ -66,6 +67,7 @@ html,body{
 .pulse-button:hover
 {
   -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+  font-size:450%;
 }
 
 @-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
