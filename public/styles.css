@@ -26,8 +26,8 @@ html,body{
 
 /* unlocked elements buttons */
 .unlocked_element{
-  width:5em;
-  height:5em;
+  width:5vw;
+  height:5vw;
   border-radius:50%;
   border:none;
   font-family: 'Ubuntu', sans-serif;
