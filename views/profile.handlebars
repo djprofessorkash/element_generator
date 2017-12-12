@@ -20,55 +20,15 @@
 
   <div class="periodic-table-wrapper">
     <ol class="periodic-table">
-      {{!-- {{#each unlockedElementsInTable}}
-        <div class="periodic-table-element"><h5><b>{{this.abbrv}}</b></h5></div>
-      {{/each}} --}}
-
-      {{#each unlockedElementsInTable}}
+      {{#each elementsDictionary}}
         <ul data-element-group={{this.group}} data-element-id={{this.abbrv}} class="periodic-table-element">
           <h5>{{this.abbrv}}</h5>
         </ul>
+
+        {{!-- {{#each unlockedElementsInTable}}
+
+        {{/each}} --}}
       {{/each}}
-
-      {{!-- <ul data-element-group="nonmetal" class="periodic-table-element h">
-        <h5>H</h5>
-      </ul>
-
-      <ul data-element-group="noble-gas" class="periodic-table-element he">
-        <h5>He</h5>
-      </ul>
-
-      <ul data-element-group="alkali-metal" class="periodic-table-element li">
-        <h5>Li</h5>
-      </ul>
-
-      <ul data-element-group="alkaline-earth-metal" class="periodic-table-element be">
-        <h5>Be</h5>
-      </ul>
-
-      <ul data-element-group="metalloid" class="periodic-table-element b">
-        <h5>B</h5>
-      </ul>
-
-      <ul data-element-group="nonmetal" class="periodic-table-element c">
-        <h5>C</h5>
-      </ul>
-
-      <ul data-element-group="nonmetal" class="periodic-table-element n">
-        <h5>N</h5>
-      </ul>
-
-      <ul data-element-group="nonmetal" class="periodic-table-element o">
-        <h5>O</h5>
-      </ul>
-
-      <ul data-element-group="halogen" class="periodic-table-element f">
-        <h5>F</h5>
-      </ul>
-
-      <ul data-element-group="noble-gas" class="periodic-table-element ne">
-        <h5>Ne</h5>
-      </ul> --}}
     </ol>
   </div>
 </main>
