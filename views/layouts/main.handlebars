@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
     <Title> Element Generator </Title>
   </head>
 
@@ -30,13 +30,13 @@
     <script>
 
       /*
-      DESCRIPTION: 
+      DESCRIPTION:
 
       Creates array of elements with selected class.
       This array will be used to create new element.
 
       User can only have up to two (2) selections at a time.
-      
+
       If less than two (2) elements selected,
       the element's proton number is pushed to array for twin fusion reaction.
       */
@@ -99,8 +99,8 @@
               console.log("NEW USER ELEMENT: " + newElementName);
               Materialize.toast("You just created " + newElementName, 2000);
 
-              setTimeout(function() { 
-                location.reload(); 
+              setTimeout(function() {
+                location.reload();
               }, 2000);
             });
           }
@@ -109,11 +109,11 @@
         // DISABLED JQUERY FOR BUTTON HANDLING (Is this PHP? What is this? --Kash)
         /* $("#the-button").click((e) => {
           e.preventDefault();
-        
+
           $.post("url/new/?name=Jojo", { a:11, b:23 }, (data) => {
             phs $_GET["name"] = Jojo  $_POST["a"] = 11
           });
-        
+
             fetch("url")
               .then((url) => {
                 console.log("FETCH COMPLETE.")
