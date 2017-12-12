@@ -2,201 +2,241 @@
   {
     "name": "Hydrogen",
     "abbrv": "H",
-    "protons": 1
+    "protons": 1,
+    "group": "nonmetal"
   },
   {
     "name": "Helium",
     "abbrv": "He",
-    "protons": 2
+    "protons": 2,
+    "group": "noble-gas"
   },
   {
     "name": "Lithium",
     "abbrv": "Li",
-    "protons": 3
+    "protons": 3,
+    "group": "alkali-metal"
   },
   {
     "name": "Beryllium",
     "abbrv": "Be",
-    "protons": 4
+    "protons": 4,
+    "group": "alkaline-earth-metal"
   },
   {
     "name": "Boron",
     "abbrv": "B",
-    "protons": 5
+    "protons": 5,
+    "group": "metalloid"
   },
   {
     "name": "Carbon",
     "abbrv": "C",
-    "protons": 6
+    "protons": 6,
+    "group": "nonmetal"
   },
   {
     "name": "Nitrogen",
     "abbrv": "N",
-    "protons": 7
+    "protons": 7,
+    "group": "nonmetal"
   },
   {
     "name": "Oxygen",
     "abbrv": "O",
-    "protons": 8
+    "protons": 8,
+    "group": "nonmetal"
   },
   {
     "name": "Fluorine",
     "abbrv": "F",
-    "protons": 9
+    "protons": 9,
+    "group": "halogen"
   },
   {
     "name": "Neon",
     "abbrv": "Ne",
-    "protons": 10
+    "protons": 10,
+    "group": "noble-gas"
   },
   {
     "name": "Sodium",
     "abbrv": "Na",
-    "protons": 11
+    "protons": 11,
+    "group": "alkali-metal"
   },
   {
     "name": "Magnesium",
     "abbrv": "Mg",
-    "protons": 12
+    "protons": 12,
+    "group": "alkaline-earth-metal"
   },
   {
     "name": "Aluminium",
     "abbrv": "Al",
-    "protons": 13
+    "protons": 13,
+    "group": "basic-metal"
   },
   {
     "name": "Silicon",
     "abbrv": "Si",
-    "protons": 14
+    "protons": 14,
+    "group": "metalloid"
   },
   {
     "name": "Phosphorus",
     "abbrv": "P",
-    "protons": 15
+    "protons": 15,
+    "group": "nonmetal"
   },
   {
     "name": "Sulfur",
     "abbrv": "S",
-    "protons": 16
+    "protons": 16,
+    "group": "nonmetal"
   },
   {
     "name": "Chlorine",
     "abbrv": "Cl",
-    "protons": 17
+    "protons": 17,
+    "group": "nonmetal"
   },
   {
     "name": "Argon",
     "abbrv": "Ar",
-    "protons": 18
+    "protons": 18,
+    "group": "noble-gas"
   },
   {
     "name": "Potassium",
     "abbrv": "K",
-    "protons": 19
+    "protons": 19,
+    "group": "alkali-metal"
   },
   {
     "name": "Calcium",
     "abbrv": "Ca",
-    "protons": 20
+    "protons": 20,
+    "group": "alkaline-earth-metal"
   },
   {
     "name": "Scandium",
     "abbrv": "Sc",
-    "protons": 21
+    "protons": 21,
+    "group": "transition-metal"
   },
   {
     "name": "Titanium",
     "abbrv": "Ti",
-    "protons": 22
+    "protons": 22,
+    "group": "transition-metal"
   },
   {
     "name": "Vanadium",
     "abbrv": "V",
-    "protons": 23
+    "protons": 23,
+    "group": "transition-metal"
   },
   {
     "name": "Chromium",
     "abbrv": "Cr",
-    "protons": 24
+    "protons": 24,
+    "group": "transition-metal"
   },
   {
-    "name": "Manganesse",
+    "name": "Manganese",
     "abbrv": "Mn",
-    "protons": 25
+    "protons": 25,
+    "group": "transition-metal"
   },
   {
     "name": "Iron",
     "abbrv": "Fe",
-    "protons": 26
+    "protons": 26,
+    "group": "transition-metal"
   },
   {
     "name": "Cobalt",
     "abbrv": "Co",
-    "protons": 27
+    "protons": 27,
+    "group": "transition-metal"
   },
   {
     "name": "Nickel",
     "abbrv": "Ni",
-    "protons": 28
+    "protons": 28,
+    "group": "transition-metal"
   },
   {
     "name": "Copper",
     "abbrv": "Cu",
-    "protons": 29
+    "protons": 29,
+    "group": "transition-metal"
   },
   {
     "name": "Zinc",
     "abbrv": "Zn",
-    "protons": 30
+    "protons": 30,
+    "group": "transition-metal"
   },
   {
     "name": "Gallium",
     "abbrv": "Ga",
-    "protons": 31
+    "protons": 31,
+    "group": "basic-metal"
   },
   {
     "name": "Germanium",
     "abbrv": "Ga",
-    "protons": 31
+    "protons": 32,
+    "group": "metalloid"
   },
   {
     "name": "Arsenic",
     "abbrv": "As",
-    "protons": 33
+    "protons": 33,
+    "group": "metalloid"
   },
   {
     "name": "Selenium",
     "abbrv": "Se",
-    "protons": 34
+    "protons": 34,
+    "group": "nonmetal"
   },
   {
     "name": "Bromine",
     "abbrv": "Br",
-    "protons": 35
+    "protons": 35,
+    "group": "halogen"
   },
   {
     "name": "Krypton",
     "abbrv": "Kr",
-    "protons": 36
+    "protons": 36,
+    "group": "noble-gas"
   },
   {
     "name": "Rubidium",
     "abbrv": "Rb",
-    "protons": 37
+    "protons": 37,
+    "group": "alkali-metal"
   },
   {
     "name": "Strontium",
     "abbrv": "Sr",
-    "protons": 38
+    "protons": 38,
+    "group": "alkaline-earth-metal"
   },
   {
     "name": "Yttrium",
     "abbrv": "Y",
-    "protons": 39
+    "protons": 39,
+    "group": "transition-metal"
   },
   {
     "name": "Zirconium",
     "abbrv": "Zr",
-    "protons": 40
+    "protons": 40,
+    "group": "transition-metal"
   }
 ]
