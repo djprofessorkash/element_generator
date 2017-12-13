@@ -229,34 +229,34 @@ header a, a:visited {
 }
 
 [data-element-group="alkali-metal"]                   {border-color: darkred}
-[data-element-group="alkali-metal"]:hover             {background-color: darkred; -webkit-transform: scale(1.1)}
+[data-element-group="alkali-metal"]:hover             {background-color: darkred; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="alkaline-earth-metal"]           {border-color: darkorange}
-[data-element-group="alkaline-earth-metal"]:hover     {background-color: darkorange; -webkit-transform: scale(1.1)}
+[data-element-group="alkaline-earth-metal"]:hover     {background-color: darkorange; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="transition-metal"]               {border-color: yellow}
-[data-element-group="transition-metal"]:hover         {background-color: yellow; -webkit-transform: scale(1.1)}
+[data-element-group="transition-metal"]:hover         {background-color: yellow; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="basic-metal"]                    {border-color: lightgreen}
-[data-element-group="basic-metal"]:hover              {background-color: lightgreen; -webkit-transform: scale(1.1)}
+[data-element-group="basic-metal"]:hover              {background-color: lightgreen; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="metalloid"]                      {border-color: blue}
-[data-element-group="metalloid"]:hover                {background-color: blue; -webkit-transform: scale(1.1)}
+[data-element-group="metalloid"]:hover                {background-color: blue; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="nonmetal"]                       {border-color: darkblue}
-[data-element-group="nonmetal"]:hover                 {background-color: darkblue; -webkit-transform: scale(1.1)}
+[data-element-group="nonmetal"]:hover                 {background-color: darkblue; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="halogen"]                        {border-color: darkorchid}
-[data-element-group="halogen"]:hover                  {background-color: darkorchid; -webkit-transform: scale(1.1)}
+[data-element-group="halogen"]:hover                  {background-color: darkorchid; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="noble-gas"]                      {border-color: darkslateblue}
-[data-element-group="noble-gas"]:hover                {background-color: darkslateblue; -webkit-transform: scale(1.1)}
+[data-element-group="noble-gas"]:hover                {background-color: darkslateblue; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="lanthanide"]                     {border-color: lightpink}
-[data-element-group="lanthanide"]:hover               {background-color: lightpink; -webkit-transform: scale(1.1)}
+[data-element-group="lanthanide"]:hover               {background-color: lightpink; -webkit-transform: scale(1.1); transition: 0.1s}
 
 [data-element-group="actinide"]                       {border-color: lightsalmon}
-[data-element-group="actinide"]:hover                 {background-color: lightsalmon; -webkit-transform: scale(1.1)}
+[data-element-group="actinide"]:hover                 {background-color: lightsalmon; -webkit-transform: scale(1.1); transition: 0.1s}
 
 
 [data-element-id="H"]       {grid-row: 1; grid-column: 1}
