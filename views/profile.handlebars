@@ -26,10 +26,24 @@
         </ul>
 
         {{!-- {{#each unlockedElementsInTable}}
-
         {{/each}} --}}
       {{/each}}
       <ul style="grid-row: 5; grid-column: 5; width: 4.167vw; height: 4.167vw; text-align: center; padding-top: 10px; padding-left: 10px;">More elements coming soon...</ul>
     </ol>
   </div>
+
+  <script>
+    // Iterate through all elements in dictionary on page and check if they are unlocked...
+    // If not unlocked, then add a class that greys them out.
+    // If unlocked, then do nothing.
+
+    for (let iterator = 0; iterator < unlockedElementsInTable.length; iterator++) {
+      if (unlockedElementsInTable[iterator] in elementsDictionary) {
+        break;
+      } else {
+        // Find the unlockedElementsInTable[iterator] element and add the "isLocked" class
+        console.log("HELLO WORLD!");
+      }
+    }
+  </script>
 </main>
