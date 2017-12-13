@@ -14,9 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
     <Title> Element Generator </Title>
@@ -49,8 +49,6 @@
         function getChecked() {
           var currentlySelected = [];
 
-          // for (let i = 0; i < elementsToCombine.length; i++) {     // What is this? --Kash
-
           $(".unlocked_element").each(function() {
             if ($(this).hasClass("selected")) {
               currentlySelected.push($(this).val());
@@ -64,16 +62,22 @@
 
         // ================= LOGIC TO ADD/REMOVE SELECTION CLASS ==================
         $(".unlocked_element").click(function() {
-
-          if (getChecked().length < 2) {
+          let max_selected = 2
+          if (getChecked().length < max_selected) {   // fus ro dah
             console.log("TOGGLE SELECTION CLASS.");
             $(this).toggleClass("selected");
+            if (getChecked().length == max_selected){
+              $(".unlocked_element").not(".selected").addClass("lock_unselected")
+              .attr("disabled",true);
+            }
           }
 
-          else if (getChecked().length == 2) {
+          else if (getChecked().length == max_selected) {
             if ($(this).hasClass("selected")) {
               console.log("REMOVE SELECTED CLASS.");
               $(this).removeClass("selected");
+              $(".unlocked_element").not(".selected").removeClass("lock_unselected")
+              .attr("disabled",false);
             }
           }
 

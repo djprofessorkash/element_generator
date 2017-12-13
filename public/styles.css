@@ -42,13 +42,18 @@ html,body{
 
 }
 
-.unlocked_element:hover{
+.unlocked_element:not(.lock_unselected):hover{
   background-color:#97ade5;
 }
 
 .selected {
   /*background-color:#86c631;*/
   border:4px solid #f7e304;
+}
+
+.lock_unselected {
+  background-color: #cccccc;
+  color: #8c8c8c;
 }
 
 .pulse-button {
