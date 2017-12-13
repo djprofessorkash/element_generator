@@ -61,7 +61,7 @@
     "protons": 8,
     "group": "nonmetal",
     "display-group": "nonmetal",
-    "desc": "Test description for Oxygen."
+    "desc": "Oxygen is a highly reactive gaseous nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium."
   },
   {
     "name": "Fluorine",
@@ -69,7 +69,7 @@
     "protons": 9,
     "group": "halogen",
     "display-group": "halogen",
-    "desc": "Test description for Lithium."
+    "desc": "Fluorine is the lightest halogen and exists as a toxic pale yellow gas at standard conditions. It is extremely reactive: almost all other elements, including some noble gases, form compounds with fluorine."
   },
   {
     "name": "Neon",
@@ -77,7 +77,7 @@
     "protons": 10,
     "group": "noble-gas",
     "display-group": "noble gas",
-    "desc": "Test description for Neon."
+    "desc": "Neon is a colorless, odorless gas under standard conditions, with about two-thirds the density of air. It is often used in bright lighting and computerized displays."
   },
   {
     "name": "Sodium",
@@ -85,7 +85,7 @@
     "protons": 11,
     "group": "alkali-metal",
     "display-group": "alkali metal",
-    "desc": "Test description for Sodium."
+    "desc": "Sodium is a soft, silver-white, highly reactive metal. Sodium is half of the common kitchen compound, table salt, and is also used in nuclear reactors and many chemical factories."
   },
   {
     "name": "Magnesium",
@@ -93,7 +93,7 @@
     "protons": 12,
     "group": "alkaline-earth-metal",
     "display-group": "alkaline earth metal",
-    "desc": "Test description for Magnesium."
+    "desc": "Magnesium is a shiny gray solid under standard conditions. Magnesium is the ninth most abundant element in the universe. It is very lightweight and easily burns brightly in contact with air. "
   },
   {
     "name": "Aluminium",
@@ -101,7 +101,7 @@
     "protons": 13,
     "group": "basic-metal",
     "display-group": "basic metal",
-    "desc": "Test description for Lithium."
+    "desc": "Aluminium is a silvery-white, soft, nonmagnetic metal. Aluminium is the third most abundant element (after oxygen and silicon), and the most abundant metal, in the Earth's crust."
   },
   {
     "name": "Silicon",
@@ -109,7 +109,7 @@
     "protons": 14,
     "group": "metalloid",
     "display-group": "metalloid",
-    "desc": "Test description for Lithium."
+    "desc": "Silicon is a stable metalloid. Controversy about silicon's character dates to its discovery. Silicon is very often used in computer technology, particularly components called semiconductors which allow computers to store and manipulate memory."
   },
   {
     "name": "Phosphorus",
@@ -117,7 +117,7 @@
     "protons": 15,
     "group": "nonmetal",
     "display-group": "nonmetal",
-    "desc": "Test description for Lithium."
+    "desc": "As an element, phosphorus exists in two major forms: white phosphorus and red phosphorus. Due to its high reactivity, phosphorus is never found as a free element on Earth. Instead phosphorus-containing minerals are commonly present in inorganic phosphate rocks."
   },
   {
     "name": "Sulfur",
@@ -125,7 +125,7 @@
     "protons": 16,
     "group": "nonmetal",
     "display-group": "nonmetal",
-    "desc": "Test description for Lithium."
+    "desc": "Sulfur is an abundant nonmetal. Under normal conditions, sulfur can form complex molecules with other reactive gases and are commonly found distributed in various minerals."
   },
   {
     "name": "Chlorine",
@@ -133,7 +133,7 @@
     "protons": 17,
     "group": "halogen",
     "display-group": "halogen",
-    "desc": "Test description for Lithium."
+    "desc": "Chlorine is a yellow-green gaseous halogen. Chlorine is the second lightest halogen following fluorine and is highly toxic in its common gaseous form."
   },
   {
     "name": "Argon",
