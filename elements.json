@@ -141,7 +141,7 @@
     "protons": 18,
     "group": "noble-gas",
     "display-group": "noble gas",
-    "desc": "Test description for Lithium."
+    "desc": "Argon is a colorless, odorless, inert gas. Argon is the third most common gas in the Earth's atmosphere, making it over twice as abundant as the next most common atmospheric gas, water vapor, and 23 times as abundant as the next most common atmospheric gas, carbon dioxide, and more than 500 times as abundant as the next most common noble gas, neon."
   },
   {
     "name": "Potassium",
@@ -149,7 +149,7 @@
     "protons": 19,
     "group": "alkali-metal",
     "display-group": "alkali metal",
-    "desc": "Test description for Lithium."
+    "desc": "Potassium is a soft, silvery metal that's highly reactive with air. Potassium was first isolated from potash, the ashes of plants, from which its name is derived."
   },
   {
     "name": "Calcium",
@@ -157,7 +157,7 @@
     "protons": 20,
     "group": "alkaline-earth-metal",
     "display-group": "alkaline earth metal",
-    "desc": "Test description for Lithium."
+    "desc": "Calcium is a soft gray alkaline earth metal and the fifth-most-abundant element by mass in the Earth's crust. Ionic calcium is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, and magnesium."
   },
   {
     "name": "Scandium",
@@ -165,7 +165,7 @@
     "protons": 21,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Scandium is a silvery-white metallic element. It has historically been sometimes classified as a rare earth element, together with yttrium and the lanthanides. It was discovered in 1879 in the minerals euxenite and gadolinite from Scandinavia."
   },
   {
     "name": "Titanium",
@@ -173,7 +173,7 @@
     "protons": 22,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Titanium is a transition metal with a silver color, low density and high strength. It is highly resistant to corrosion in sea water and chlorine. Titanium is commonly used in the material design and manufacturing of aircraft, spacecraft, and missiles."
   },
   {
     "name": "Vanadium",
@@ -181,7 +181,7 @@
     "protons": 23,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Vanadium is a hard, silvery grey, malleable transition metal. Vanadium is resistent against corrosion and is commonly used in steel structures like armor and mechanical cranks."
   },
   {
     "name": "Chromium",
@@ -189,7 +189,7 @@
     "protons": 24,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Chromium is a steely-gray, lustrous, hard and brittle metal which takes a high polish, resists tarnishing, and has a high melting point. Due to its remarkable material properties, it is commonly used to strengthen steel alloys and can be used as a polish and finish for many materials to give it that nice 'chrome' look."
   },
   {
     "name": "Manganese",
