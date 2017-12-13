@@ -26,8 +26,8 @@ html,body{
   padding-left: 10px;
 }
 
-#elementalModal {
-  background-color: rgba(43, 43, 43, 0.9);
+.elementalModal {
+  color: rgba(43, 43, 43, 0.9);  
 }
 
 .elementButtons {

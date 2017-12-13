@@ -18,7 +18,7 @@
     <h5>{{this.name}} ({{this.abbrv}})</h5>
   {{/each}} --}}
 
-  <div class="periodic-table-wrapper">
+  <div class="periodic-table-wrapper" style="margin-left: 150px; margin-right: 150px">
     <ol class="periodic-table">
       {{!-- {{#each elementsDictionary}} --}}
       {{#each unlockedElementsInTable}}
@@ -27,17 +27,19 @@
         </ul>
 
         <div id={{this.abbrv}} class="modal elementalModal">
-          <h2> {{this.name}} </h2>
-          <h3> {{this.desc}} </h3>
+          <h2 style="padding-left: 10px;"> {{this.name}} ({{this.abbrv}})</h2>
+          <h4> Atomic Number (Z): {{this.protons}} </h4>
+          <h4> {{this.desc}} </h4>
           <div class="modal-footer">
             <button class="modal-action modal-close waves-effect waves-green btn-flat"> Close </button>
           </div>
         </div>
 
       {{/each}}
-      <ul style="grid-row: 5; grid-column: 5; width: 4.167vw; height: 4.167vw; text-align: center; padding-top: 10px; padding-left: 10px;"> More elements coming soon... </ul>
     </ol>
   </div>
+  <h5 style="text-align: center;"> More elements coming soon... </h5>
+
 
   <script>
     // Iterate through all elements in dictionary on page and check if they are unlocked...
