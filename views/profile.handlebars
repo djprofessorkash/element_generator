@@ -25,16 +25,16 @@
           <h5>{{this.abbrv}}</h5>
         </ul>
 
-        <div id={{this.abbrv}} class="modal">
+        <div id={{this.abbrv}} class="modal elementalModal">
           <h2> {{this.name}} </h2>
           <h3> {{this.desc}} </h3>
           <div class="modal-footer">
-            <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+            <button class="modal-action modal-close waves-effect waves-green btn-flat"> Close </button>
           </div>
         </div>
 
       {{/each}}
-      <ul style="grid-row: 5; grid-column: 5; width: 4.167vw; height: 4.167vw; text-align: center; padding-top: 10px; padding-left: 10px;">More elements coming soon...</ul>
+      <ul style="grid-row: 5; grid-column: 5; width: 4.167vw; height: 4.167vw; text-align: center; padding-top: 10px; padding-left: 10px;"> More elements coming soon... </ul>
     </ol>
   </div>
 
@@ -84,3 +84,15 @@
     <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
   </div>
 </div> --}}
+
+<div id="instructionsModal" class="modal">
+  <h2> INSTRUCTIONS </h2>
+  <h5>Welcome to the NUCLEUS: ELEMENTARY CHEMISTRY SANDBOX.</h5><br>
+  <h6> Here's how to play: </h6>
+  <h7><li> Select TWO ELEMENTS to combine them with a NUCLEAR FUSION! </li>
+  <li> If you select only ONE ELEMENT, two atoms of that element will be FUSED TOGETHER! </li>
+  <li> To check your elements and see what you've unlocked, go to "MY PROGRESS" in the navbar! </li></h7>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>
