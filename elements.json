@@ -197,7 +197,7 @@
     "protons": 25,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Manganese is not found as a free element in nature; it is often found in combination with iron, and in many minerals. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels."
   },
   {
     "name": "Iron",
@@ -205,7 +205,7 @@
     "protons": 26,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Iron is by mass the most common element on Earth, forming much of Earth's outer and inner core. Iron is a shiny, greyish metal that rusts in damp air. Most iron is used to manufacture steel, used in civil engineering (reinforced concrete, girders etc) and in manufacturing."
   },
   {
     "name": "Cobalt",
@@ -213,7 +213,7 @@
     "protons": 27,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Cobalt in the Earth's crust is found only in chemically combined form. The free element, produced by reductive smelting, is a hard, lustrous, silver-gray metal."
   },
   {
     "name": "Nickel",
@@ -221,7 +221,7 @@
     "protons": 28,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Nickel is a silvery-white lustrous metal with a slight golden tinge. Nickel belongs to the transition metals and is hard and ductile."
   },
   {
     "name": "Copper",
@@ -229,7 +229,7 @@
     "protons": 29,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Copper is a soft, malleable and ductile metal with very high thermal and electrical conductivity. A freshly exposed surface of pure copper has a reddish-orange color."
   },
   {
     "name": "Zinc",
@@ -237,7 +237,7 @@
     "protons": 30,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "Identified as an element in 1746, but known to the Greeks and Romans before 20BC. The name is derived from the German, 'zinc', which may in turn be derived from the Persian word 'sing', meaning stone."
   },
   {
     "name": "Gallium",
@@ -245,7 +245,7 @@
     "protons": 31,
     "group": "basic-metal",
     "display-group": "basic metal",
-    "desc": "Test description for Lithium."
+    "desc": "Elemental gallium does not occur in free form in nature. Gallium is a soft, silvery metal, and elemental gallium is a brittle solid at low temperatures, and melts at slightly above room temperature."
   },
   {
     "name": "Germanium",
@@ -253,7 +253,7 @@
     "protons": 32,
     "group": "metalloid",
     "display-group": "metalloid",
-    "desc": "Test description for Lithium."
+    "desc": "Germanium is a lustrous, hard, grayish-white metalloid in the carbon group, chemically similar to its group neighbors tin and silicon. Purified germanium is a semiconductor, with an appearance most similar to elemental silicon."
   },
   {
     "name": "Arsenic",
