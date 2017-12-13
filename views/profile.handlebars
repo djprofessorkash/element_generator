@@ -13,8 +13,90 @@
 
 <!-- ================ DISPLAY MAIN CONTENT WITH ELEMENT TABLE ================= -->
 <main>
-  <h1> Your Progress </h1>
-  {{#each unlockedElementsInTable}}
+  <h1 style="text-align: center;"> Your Periodic Table </h1>
+  {{!-- {{#each unlockedElementsInTable}}
     <h5>{{this.name}} ({{this.abbrv}})</h5>
-  {{/each}}
+  {{/each}} --}}
+
+  <div class="periodic-table-wrapper" style="margin-left: 150px; margin-right: 150px">
+    <ol class="periodic-table">
+      {{!-- {{#each elementsDictionary}} --}}
+      {{#each unlockedElementsInTable}}
+        <ul data-element-group={{this.group}} data-element-id={{this.abbrv}} data-target={{this.abbrv}} class="periodic-table-element modal-trigger">
+          <h5>{{this.abbrv}}</h5>
+        </ul>
+
+        <div id={{this.abbrv}} class="modal elementalModal">
+          <h2> <font style="text-transform: uppercase;"><b>{{this.name}}</b></font> ({{this.abbrv}})</h2>
+          <h5 style="text-align: center;"> Atomic Number (Z): {{this.protons}} </h5><br>
+          <p style="line-height: 200%; text-size: 2em;"><font size="+1.5"> {{this.desc}} </font></p>
+          <p><font size="+1.25"> {{this.name}} is a type of <i>{{this.display-group}}</i>. </font></p>
+          <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat"> Close </button>
+          </div>
+        </div>
+
+      {{/each}}
+    </ol>
+  </div>
+  <h5 style="text-align: center;"> More elements coming soon... </h5>
+
+
+  <script>
+    // Iterate through all elements in dictionary on page and check if they are unlocked...
+    // If not unlocked, then add a class that greys them out.
+    // If unlocked, then do nothing.
+
+    /* for (let iterator = 0; iterator < unlockedElementsInTable.length; iterator++) {
+      if (unlockedElementsInTable[iterator] in elementsDictionary) {
+        break;
+      } else {
+        // Find the unlockedElementsInTable[iterator] element and add the "isLocked" class
+        console.log("HELLO WORLD!");
+      }
+    } */
+
+    $(function() {
+
+    })
+  </script>
 </main>
+
+
+{{!-- <div id="H" class="modal">
+  <h2> Hydrogen </h2>
+  <h3></h3>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>
+<div id="He" class="modal">
+  <h2> Helium </h2>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>
+<div id="Li" class="modal">
+  <h2> Lithium </h2>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>
+<div id="Be" class="modal">
+  <h2> Beryllium </h2>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div> --}}
+
+<div id="instructionsModal" class="modal">
+  <h2> INSTRUCTIONS </h2>
+  <h5>Welcome to the NUCLEUS: ELEMENTARY CHEMISTRY SANDBOX.</h5><br>
+  <h6> Here's how to play: </h6>
+  <h7><li> Select TWO ELEMENTS to combine them with a NUCLEAR FUSION! </li>
+  <li> If you select only ONE ELEMENT, two atoms of that element will be FUSED TOGETHER! </li>
+  <li> To check your elements and see what you've unlocked, go to MY PROGRESS in the navbar! </li></h7>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>

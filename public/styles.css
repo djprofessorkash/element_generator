@@ -11,9 +11,24 @@ html,body{
   font-family: 'Exo', sans-serif;
 }
 
-.modal {
+#modalL {
   font-family: sans-serif !important;
   color: black;
+}
+
+#modalS {
+  font-family: sans-serif !important;
+  color: black;
+}
+
+#instructionsModal {
+  color: black;
+  padding-left: 10px;
+}
+
+.elementalModal {
+  padding: 2em;  
+  color: rgba(43, 43, 43, 0.9);
 }
 
 .elementButtons {
@@ -57,7 +72,7 @@ html,body{
 }
 
 .pulse-button {
-  margin-top: 20px;
+  margin-top: 100px;
   width: 200px;
   height: 200px;
   border: none;
@@ -188,3 +203,161 @@ header a, a:visited {
   -webkit-animation:move-clouds-back 200s linear infinite;
   animation:move-clouds-back 200s linear infinite;
 }
+
+.periodic-table-wrapper {
+  display: grid;
+  border: 2px dashed rgba(114, 186, 94, 0.35);
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: auto;
+  background: rgba(114, 186, 94, 0.05);
+}
+
+.periodic-table {
+  grid-column: 2/3;
+  display: grid;
+  width: 100%;
+  justify-content: center;
+
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.periodic-table-element {
+  width: 4.167vw;
+  height: 4.167vw;
+  text-align: center;
+  border: 3px solid;
+  border-radius: 4px;
+}
+
+.periodic-table-element:hover {
+  cursor: pointer;
+}
+
+[data-element-group="alkali-metal"]                   {border-color: darkred}
+[data-element-group="alkali-metal"]:hover             {background-color: darkred; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="alkaline-earth-metal"]           {border-color: darkorange}
+[data-element-group="alkaline-earth-metal"]:hover     {background-color: darkorange; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="transition-metal"]               {border-color: yellow}
+[data-element-group="transition-metal"]:hover         {background-color: yellow; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="basic-metal"]                    {border-color: lightgreen}
+[data-element-group="basic-metal"]:hover              {background-color: lightgreen; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="metalloid"]                      {border-color: blue}
+[data-element-group="metalloid"]:hover                {background-color: blue; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="nonmetal"]                       {border-color: darkblue}
+[data-element-group="nonmetal"]:hover                 {background-color: darkblue; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="halogen"]                        {border-color: darkorchid}
+[data-element-group="halogen"]:hover                  {background-color: darkorchid; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="noble-gas"]                      {border-color: darkslateblue}
+[data-element-group="noble-gas"]:hover                {background-color: darkslateblue; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="lanthanide"]                     {border-color: lightpink}
+[data-element-group="lanthanide"]:hover               {background-color: lightpink; -webkit-transform: scale(1.1); transition: 0.1s}
+
+[data-element-group="actinide"]                       {border-color: lightsalmon}
+[data-element-group="actinide"]:hover                 {background-color: lightsalmon; -webkit-transform: scale(1.1); transition: 0.1s}
+
+
+[data-element-id="H"]       {grid-row: 1; grid-column: 1}
+[data-element-id="He"]      {grid-row: 1; grid-column: 18}
+
+[data-element-id="Li"]      {grid-row: 2; grid-column: 1}
+[data-element-id="Be"]      {grid-row: 2; grid-column: 2}
+[data-element-id="B"]       {grid-row: 2; grid-column: 13}
+[data-element-id="C"]       {grid-row: 2; grid-column: 14}
+[data-element-id="N"]       {grid-row: 2; grid-column: 15}
+[data-element-id="O"]       {grid-row: 2; grid-column: 16}
+[data-element-id="F"]       {grid-row: 2; grid-column: 17}
+[data-element-id="Ne"]      {grid-row: 2; grid-column: 18}
+
+[data-element-id="Na"]      {grid-row: 3; grid-column: 1}
+[data-element-id="Mg"]      {grid-row: 3; grid-column: 2}
+[data-element-id="Al"]      {grid-row: 3; grid-column: 13}
+[data-element-id="Si"]      {grid-row: 3; grid-column: 14}
+[data-element-id="P"]       {grid-row: 3; grid-column: 15}
+[data-element-id="S"]       {grid-row: 3; grid-column: 16}
+[data-element-id="Cl"]      {grid-row: 3; grid-column: 17}
+[data-element-id="Ar"]      {grid-row: 3; grid-column: 18}
+
+[data-element-id="K"]       {grid-row: 4; grid-column: 1}
+[data-element-id="Ca"]      {grid-row: 4; grid-column: 2}
+[data-element-id="Sc"]      {grid-row: 4; grid-column: 3}
+[data-element-id="Ti"]      {grid-row: 4; grid-column: 4}
+[data-element-id="V"]       {grid-row: 4; grid-column: 5}
+[data-element-id="Cr"]      {grid-row: 4; grid-column: 6}
+[data-element-id="Mn"]      {grid-row: 4; grid-column: 7}
+[data-element-id="Fe"]      {grid-row: 4; grid-column: 8}
+[data-element-id="Co"]      {grid-row: 4; grid-column: 9}
+[data-element-id="Ni"]      {grid-row: 4; grid-column: 10}
+[data-element-id="Cu"]      {grid-row: 4; grid-column: 11}
+[data-element-id="Zn"]      {grid-row: 4; grid-column: 12}
+[data-element-id="Ga"]      {grid-row: 4; grid-column: 13}
+[data-element-id="Ge"]      {grid-row: 4; grid-column: 14}
+[data-element-id="As"]      {grid-row: 4; grid-column: 15}
+[data-element-id="Se"]      {grid-row: 4; grid-column: 16}
+[data-element-id="Br"]      {grid-row: 4; grid-column: 17}
+[data-element-id="Kr"]      {grid-row: 4; grid-column: 18}
+
+[data-element-id="Rb"]      {grid-row: 5; grid-column: 1}
+[data-element-id="Sr"]      {grid-row: 5; grid-column: 2}
+[data-element-id="Y"]       {grid-row: 5; grid-column: 3}
+[data-element-id="Zr"]      {grid-row: 5; grid-column: 4}
+[data-element-id="Nb"]      {grid-row: 5; grid-column: 5}
+[data-element-id="Mo"]      {grid-row: 5; grid-column: 6}
+[data-element-id="Tc"]      {grid-row: 5; grid-column: 7}
+[data-element-id="Ru"]      {grid-row: 5; grid-column: 8}
+[data-element-id="Rh"]      {grid-row: 5; grid-column: 9}
+[data-element-id="Pd"]      {grid-row: 5; grid-column: 10}
+[data-element-id="Ag"]      {grid-row: 5; grid-column: 11}
+[data-element-id="Cd"]      {grid-row: 5; grid-column: 12}
+[data-element-id="In"]      {grid-row: 5; grid-column: 13}
+[data-element-id="Sn"]      {grid-row: 5; grid-column: 14}
+[data-element-id="Sb"]      {grid-row: 5; grid-column: 15}
+[data-element-id="Te"]      {grid-row: 5; grid-column: 16}
+[data-element-id="I"]       {grid-row: 5; grid-column: 17}
+[data-element-id="Xe"]      {grid-row: 5; grid-column: 18}
+
+[data-element-id="Cs"]      {grid-row: 6; grid-column: 1}
+[data-element-id="Ba"]      {grid-row: 6; grid-column: 2}
+/* INSERT LANTHANIDES PLACEHOLDER HERE */
+[data-element-id="Hf"]      {grid-row: 6; grid-column: 4}
+[data-element-id="Ta"]      {grid-row: 6; grid-column: 5}
+[data-element-id="W"]       {grid-row: 6; grid-column: 6}
+[data-element-id="Re"]      {grid-row: 6; grid-column: 7}
+[data-element-id="Os"]      {grid-row: 6; grid-column: 8}
+[data-element-id="Ir"]      {grid-row: 6; grid-column: 9}
+[data-element-id="Pt"]      {grid-row: 6; grid-column: 10}
+[data-element-id="Au"]      {grid-row: 6; grid-column: 11}
+[data-element-id="Hg"]      {grid-row: 6; grid-column: 12}
+[data-element-id="Tl"]      {grid-row: 6; grid-column: 13}
+[data-element-id="Pb"]      {grid-row: 6; grid-column: 14}
+[data-element-id="Bi"]      {grid-row: 6; grid-column: 15}
+[data-element-id="Po"]      {grid-row: 6; grid-column: 16}
+[data-element-id="At"]      {grid-row: 6; grid-column: 17}
+[data-element-id="Rn"]      {grid-row: 6; grid-column: 18}
+
+[data-element-id="Fr"]      {grid-row: 7; grid-column: 1}
+[data-element-id="Ra"]      {grid-row: 7; grid-column: 2}
+/* INSERT ACTINIDES PLACEHOLDER HERE */
+[data-element-id="Rf"]      {grid-row: 7; grid-column: 4}
+[data-element-id="Db"]      {grid-row: 7; grid-column: 5}
+[data-element-id="Sg"]      {grid-row: 7; grid-column: 6}
+[data-element-id="Bh"]      {grid-row: 7; grid-column: 7}
+[data-element-id="Hs"]      {grid-row: 7; grid-column: 8}
+[data-element-id="Mt"]      {grid-row: 7; grid-column: 9}
+[data-element-id="Ds"]      {grid-row: 7; grid-column: 10}
+[data-element-id="Rg"]      {grid-row: 7; grid-column: 11}
+[data-element-id="Cn"]      {grid-row: 7; grid-column: 12}
+[data-element-id="Nh"]      {grid-row: 7; grid-column: 13}
+[data-element-id="Fl"]      {grid-row: 7; grid-column: 14}
+[data-element-id="Mc"]      {grid-row: 7; grid-column: 15}
+[data-element-id="Lv"]      {grid-row: 7; grid-column: 16}
+[data-element-id="Ts"]      {grid-row: 7; grid-column: 17}
+[data-element-id="Og"]      {grid-row: 7; grid-column: 18}

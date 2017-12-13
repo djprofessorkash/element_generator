@@ -38,3 +38,4 @@ The Element Generator is an educational simulator that teaches the basics of che
 - <i>Kash</i>: 
 > - Create Periodic Table on Profile page for unlocked elements
 > - Create description pages for each element
+> - Add reactionary chemistry tab for unlocked elements
