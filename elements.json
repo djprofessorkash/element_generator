@@ -13,7 +13,7 @@
     "protons": 2,
     "group": "noble-gas",
     "display-group": "noble gas",
-    "desc": "Test description for Helium."
+    "desc": "Helium is a colorless, odorless, tasteless gas. Its boiling and melting points are the lowest among all the elements."
   },
   {
     "name": "Lithium",
@@ -21,7 +21,7 @@
     "protons": 3,
     "group": "alkali-metal",
     "display-group": "alkali metal",
-    "desc": "Test description for Lithium."
+    "desc": "Lithium is a soft, silver metal. Under standard conditions, it is the lightest metal and the least dense solid element."
   },
   {
     "name": "Beryllium",
@@ -29,7 +29,7 @@
     "protons": 4,
     "group": "alkaline-earth-metal",
     "display-group": "alkaline earth metal",
-    "desc": "Test description for Beryllium."
+    "desc": "Beryllium is a relatively rare universal element. It occurs naturally only in combination with other elements in minerals and crystals, like emerald and aquamarine. It is used frequently in copper and nickel alloys."
   },
   {
     "name": "Boron",
@@ -37,7 +37,7 @@
     "protons": 5,
     "group": "metalloid",
     "display-group": "metalloid",
-    "desc": "Test description for Boron."
+    "desc": "Boron is a dark, powder-like low-abundance element in both the Solar system and the Earth's crust produced more often from cosmic rays and supernovae. Boron is concentrated on Earth by many water-soluble minerals and can be used to make bleach and other preservatives."
   },
   {
     "name": "Carbon",
@@ -45,7 +45,7 @@
     "protons": 6,
     "group": "nonmetal",
     "display-group": "nonmetal",
-    "desc": "Test description for Carbon."
+    "desc": "Carbon is a nonmetallic element with four electrons available to form many chemical bonds. Carbon is highly abundant in living organisms and is one of the most abudant chemicals on Earth."
   },
   {
     "name": "Nitrogen",
@@ -53,7 +53,7 @@
     "protons": 7,
     "group": "nonmetal",
     "display-group": "nonmetal",
-    "desc": "Test description for Nitrogen."
+    "desc": "Nitrogen is a transparent, odorless gas at room temperature. Nitrogen is a common element in the universe, making up about a seventh of elemental abundance in the Milky Way and the Solar System."
   },
   {
     "name": "Oxygen",
