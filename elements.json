@@ -261,7 +261,7 @@
     "protons": 33,
     "group": "metalloid",
     "display-group": "metalloid",
-    "desc": "Test description for Lithium."
+    "desc": "Arsenic occurs in many minerals, usually in conjunction with sulfur and metals, and also as a pure elemental crystal."
   },
   {
     "name": "Selenium",
@@ -269,7 +269,7 @@
     "protons": 34,
     "group": "nonmetal",
     "display-group": "nonmetal",
-    "desc": "Test description for Lithium."
+    "desc": "It is a nonmetal with properties that are intermediate between those of its periodic table column-adjacent chalcogen elements sulfur and tellurium. It rarely occurs in its elemental state in nature, or as pure ore compounds."
   },
   {
     "name": "Bromine",
@@ -277,7 +277,7 @@
     "protons": 35,
     "group": "halogen",
     "display-group": "halogen",
-    "desc": "Test description for Lithium."
+    "desc": "Bromine (from Ancient Greek: meaning \"stench\"). The element was isolated independently by two chemists, Carl Jacob L\u00f6wig and Antoine Jerome Balard, in 1825\u20131826."
   },
   {
     "name": "Krypton",
@@ -285,7 +285,7 @@
     "protons": 36,
     "group": "noble-gas",
     "display-group": "noble gas",
-    "desc": "Test description for Lithium."
+    "desc": "Krypton (from Greek: kryptos \"the hidden one\"). A colorless, odorless, tasteless noble gas, krypton occurs in trace amounts in the atmosphere, is isolated by fractionally distilling liquefied air, and is often used with other rare gases in fluorescent lamps."
   },
   {
     "name": "Rubidium",
@@ -293,7 +293,7 @@
     "protons": 37,
     "group": "alkali-metal",
     "display-group": "alkali metal",
-    "desc": "Test description for Lithium."
+    "desc": "Rubidium is a soft, silvery-white metallic element of the alkali metal group. Elemental rubidium is highly reactive, with properties similar to those of other alkali metals, such as very rapid oxidation in air."
   },
   {
     "name": "Strontium",
@@ -301,7 +301,7 @@
     "protons": 38,
     "group": "alkaline-earth-metal",
     "display-group": "alkaline earth metal",
-    "desc": "Test description for Lithium."
+    "desc": "An alkaline earth metal, strontium is a soft silver-white or yellowish metallic element that is highly reactive chemically. The metal turns yellow when it is exposed to air."
   },
   {
     "name": "Yttrium",
@@ -309,7 +309,7 @@
     "protons": 39,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "It is a silvery-metallic transition metal chemically similar to the lanthanides and it has often been classified as a \"rare earth element\". Yttrium is almost always found combined with the lanthanides in rare earth minerals and is never found in nature as a free element."
   },
   {
     "name": "Zirconium",
@@ -317,6 +317,6 @@
     "protons": 40,
     "group": "transition-metal",
     "display-group": "transition metal",
-    "desc": "Test description for Lithium."
+    "desc": "The name of zirconium is taken from the name of the mineral zircon, the most important source of zirconium. The word zircon comes from the Persian word zargun, meaning \"gold-colored\"."
   }
 ]
