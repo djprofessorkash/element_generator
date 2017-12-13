@@ -27,9 +27,10 @@
         </ul>
 
         <div id={{this.abbrv}} class="modal elementalModal">
-          <h2 style="padding-left: 10px;"> {{this.name}} ({{this.abbrv}})</h2>
-          <h4> Atomic Number (Z): {{this.protons}} </h4>
-          <h4> {{this.desc}} </h4>
+          <h2> <font style="text-transform: uppercase;"><b>{{this.name}}</b></font> ({{this.abbrv}})</h2>
+          <h5 style="text-align: center;"> Atomic Number (Z): {{this.protons}} </h5><br>
+          <p style="line-height: 200%; text-size: 2em;"><font size="+1.5"> {{this.desc}} </font></p>
+          <p><font size="+1.25"> {{this.name}} is a type of <i>{{this.display-group}}</i>. </font></p>
           <div class="modal-footer">
             <button class="modal-action modal-close waves-effect waves-green btn-flat"> Close </button>
           </div>

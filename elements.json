@@ -4,13 +4,15 @@
     "abbrv": "H",
     "protons": 1,
     "group": "nonmetal",
-    "desc": "Test description for Hydrogen."
+    "display-group": "nonmetal",
+    "desc": "With an atomic weight of about one atomic mass unit, hydrogen is the lightest element on the periodic table. It is the most abundant chemical substance in the universe, making up about 75% of all mass."
   },
   {
     "name": "Helium",
     "abbrv": "He",
     "protons": 2,
     "group": "noble-gas",
+    "display-group": "noble gas",
     "desc": "Test description for Helium."
   },
   {
@@ -18,6 +20,7 @@
     "abbrv": "Li",
     "protons": 3,
     "group": "alkali-metal",
+    "display-group": "alkali metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -25,6 +28,7 @@
     "abbrv": "Be",
     "protons": 4,
     "group": "alkaline-earth-metal",
+    "display-group": "alkaline earth metal",
     "desc": "Test description for Beryllium."
   },
   {
@@ -32,6 +36,7 @@
     "abbrv": "B",
     "protons": 5,
     "group": "metalloid",
+    "display-group": "metalloid",
     "desc": "Test description for Boron."
   },
   {
@@ -39,6 +44,7 @@
     "abbrv": "C",
     "protons": 6,
     "group": "nonmetal",
+    "display-group": "nonmetal",
     "desc": "Test description for Carbon."
   },
   {
@@ -46,6 +52,7 @@
     "abbrv": "N",
     "protons": 7,
     "group": "nonmetal",
+    "display-group": "nonmetal",
     "desc": "Test description for Nitrogen."
   },
   {
@@ -53,6 +60,7 @@
     "abbrv": "O",
     "protons": 8,
     "group": "nonmetal",
+    "display-group": "nonmetal",
     "desc": "Test description for Oxygen."
   },
   {
@@ -60,6 +68,7 @@
     "abbrv": "F",
     "protons": 9,
     "group": "halogen",
+    "display-group": "halogen",
     "desc": "Test description for Lithium."
   },
   {
@@ -67,27 +76,31 @@
     "abbrv": "Ne",
     "protons": 10,
     "group": "noble-gas",
-    "desc": "Test description for Lithium."
+    "display-group": "noble gas",
+    "desc": "Test description for Neon."
   },
   {
     "name": "Sodium",
     "abbrv": "Na",
     "protons": 11,
     "group": "alkali-metal",
-    "desc": "Test description for Lithium."
+    "display-group": "alkali metal",
+    "desc": "Test description for Sodium."
   },
   {
     "name": "Magnesium",
     "abbrv": "Mg",
     "protons": 12,
     "group": "alkaline-earth-metal",
-    "desc": "Test description for Lithium."
+    "display-group": "alkaline earth metal",
+    "desc": "Test description for Magnesium."
   },
   {
     "name": "Aluminium",
     "abbrv": "Al",
     "protons": 13,
     "group": "basic-metal",
+    "display-group": "basic metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -95,6 +108,7 @@
     "abbrv": "Si",
     "protons": 14,
     "group": "metalloid",
+    "display-group": "metalloid",
     "desc": "Test description for Lithium."
   },
   {
@@ -102,6 +116,7 @@
     "abbrv": "P",
     "protons": 15,
     "group": "nonmetal",
+    "display-group": "nonmetal",
     "desc": "Test description for Lithium."
   },
   {
@@ -109,6 +124,7 @@
     "abbrv": "S",
     "protons": 16,
     "group": "nonmetal",
+    "display-group": "nonmetal",
     "desc": "Test description for Lithium."
   },
   {
@@ -116,6 +132,7 @@
     "abbrv": "Cl",
     "protons": 17,
     "group": "halogen",
+    "display-group": "halogen",
     "desc": "Test description for Lithium."
   },
   {
@@ -123,6 +140,7 @@
     "abbrv": "Ar",
     "protons": 18,
     "group": "noble-gas",
+    "display-group": "noble gas",
     "desc": "Test description for Lithium."
   },
   {
@@ -130,6 +148,7 @@
     "abbrv": "K",
     "protons": 19,
     "group": "alkali-metal",
+    "display-group": "alkali metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -137,6 +156,7 @@
     "abbrv": "Ca",
     "protons": 20,
     "group": "alkaline-earth-metal",
+    "display-group": "alkaline earth metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -144,6 +164,7 @@
     "abbrv": "Sc",
     "protons": 21,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -151,6 +172,7 @@
     "abbrv": "Ti",
     "protons": 22,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -158,6 +180,7 @@
     "abbrv": "V",
     "protons": 23,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -165,6 +188,7 @@
     "abbrv": "Cr",
     "protons": 24,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -172,6 +196,7 @@
     "abbrv": "Mn",
     "protons": 25,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -179,6 +204,7 @@
     "abbrv": "Fe",
     "protons": 26,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -186,6 +212,7 @@
     "abbrv": "Co",
     "protons": 27,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -193,6 +220,7 @@
     "abbrv": "Ni",
     "protons": 28,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -200,6 +228,7 @@
     "abbrv": "Cu",
     "protons": 29,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -207,6 +236,7 @@
     "abbrv": "Zn",
     "protons": 30,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -214,6 +244,7 @@
     "abbrv": "Ga",
     "protons": 31,
     "group": "basic-metal",
+    "display-group": "basic metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -221,6 +252,7 @@
     "abbrv": "Ge",
     "protons": 32,
     "group": "metalloid",
+    "display-group": "metalloid",
     "desc": "Test description for Lithium."
   },
   {
@@ -228,6 +260,7 @@
     "abbrv": "As",
     "protons": 33,
     "group": "metalloid",
+    "display-group": "metalloid",
     "desc": "Test description for Lithium."
   },
   {
@@ -235,6 +268,7 @@
     "abbrv": "Se",
     "protons": 34,
     "group": "nonmetal",
+    "display-group": "nonmetal",
     "desc": "Test description for Lithium."
   },
   {
@@ -242,6 +276,7 @@
     "abbrv": "Br",
     "protons": 35,
     "group": "halogen",
+    "display-group": "halogen",
     "desc": "Test description for Lithium."
   },
   {
@@ -249,6 +284,7 @@
     "abbrv": "Kr",
     "protons": 36,
     "group": "noble-gas",
+    "display-group": "noble gas",
     "desc": "Test description for Lithium."
   },
   {
@@ -256,6 +292,7 @@
     "abbrv": "Rb",
     "protons": 37,
     "group": "alkali-metal",
+    "display-group": "alkali metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -263,6 +300,7 @@
     "abbrv": "Sr",
     "protons": 38,
     "group": "alkaline-earth-metal",
+    "display-group": "alkaline earth metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -270,6 +308,7 @@
     "abbrv": "Y",
     "protons": 39,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   },
   {
@@ -277,6 +316,7 @@
     "abbrv": "Zr",
     "protons": 40,
     "group": "transition-metal",
+    "display-group": "transition metal",
     "desc": "Test description for Lithium."
   }
 ]
