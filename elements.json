@@ -3,240 +3,280 @@
     "name": "Hydrogen",
     "abbrv": "H",
     "protons": 1,
-    "group": "nonmetal"
+    "group": "nonmetal",
+    "desc": "Test description for Hydrogen."
   },
   {
     "name": "Helium",
     "abbrv": "He",
     "protons": 2,
-    "group": "noble-gas"
+    "group": "noble-gas",
+    "desc": "Test description for Helium."
   },
   {
     "name": "Lithium",
     "abbrv": "Li",
     "protons": 3,
-    "group": "alkali-metal"
+    "group": "alkali-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Beryllium",
     "abbrv": "Be",
     "protons": 4,
-    "group": "alkaline-earth-metal"
+    "group": "alkaline-earth-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Boron",
     "abbrv": "B",
     "protons": 5,
-    "group": "metalloid"
+    "group": "metalloid",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Carbon",
     "abbrv": "C",
     "protons": 6,
-    "group": "nonmetal"
+    "group": "nonmetal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Nitrogen",
     "abbrv": "N",
     "protons": 7,
-    "group": "nonmetal"
+    "group": "nonmetal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Oxygen",
     "abbrv": "O",
     "protons": 8,
-    "group": "nonmetal"
+    "group": "nonmetal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Fluorine",
     "abbrv": "F",
     "protons": 9,
-    "group": "halogen"
+    "group": "halogen",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Neon",
     "abbrv": "Ne",
     "protons": 10,
-    "group": "noble-gas"
+    "group": "noble-gas",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Sodium",
     "abbrv": "Na",
     "protons": 11,
-    "group": "alkali-metal"
+    "group": "alkali-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Magnesium",
     "abbrv": "Mg",
     "protons": 12,
-    "group": "alkaline-earth-metal"
+    "group": "alkaline-earth-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Aluminium",
     "abbrv": "Al",
     "protons": 13,
-    "group": "basic-metal"
+    "group": "basic-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Silicon",
     "abbrv": "Si",
     "protons": 14,
-    "group": "metalloid"
+    "group": "metalloid",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Phosphorus",
     "abbrv": "P",
     "protons": 15,
-    "group": "nonmetal"
+    "group": "nonmetal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Sulfur",
     "abbrv": "S",
     "protons": 16,
-    "group": "nonmetal"
+    "group": "nonmetal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Chlorine",
     "abbrv": "Cl",
     "protons": 17,
-    "group": "halogen"
+    "group": "halogen",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Argon",
     "abbrv": "Ar",
     "protons": 18,
-    "group": "noble-gas"
+    "group": "noble-gas",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Potassium",
     "abbrv": "K",
     "protons": 19,
-    "group": "alkali-metal"
+    "group": "alkali-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Calcium",
     "abbrv": "Ca",
     "protons": 20,
-    "group": "alkaline-earth-metal"
+    "group": "alkaline-earth-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Scandium",
     "abbrv": "Sc",
     "protons": 21,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Titanium",
     "abbrv": "Ti",
     "protons": 22,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Vanadium",
     "abbrv": "V",
     "protons": 23,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Chromium",
     "abbrv": "Cr",
     "protons": 24,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Manganese",
     "abbrv": "Mn",
     "protons": 25,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Iron",
     "abbrv": "Fe",
     "protons": 26,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Cobalt",
     "abbrv": "Co",
     "protons": 27,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Nickel",
     "abbrv": "Ni",
     "protons": 28,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Copper",
     "abbrv": "Cu",
     "protons": 29,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Zinc",
     "abbrv": "Zn",
     "protons": 30,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Gallium",
     "abbrv": "Ga",
     "protons": 31,
-    "group": "basic-metal"
+    "group": "basic-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Germanium",
     "abbrv": "Ge",
     "protons": 32,
-    "group": "metalloid"
+    "group": "metalloid",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Arsenic",
     "abbrv": "As",
     "protons": 33,
-    "group": "metalloid"
+    "group": "metalloid",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Selenium",
     "abbrv": "Se",
     "protons": 34,
-    "group": "nonmetal"
+    "group": "nonmetal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Bromine",
     "abbrv": "Br",
     "protons": 35,
-    "group": "halogen"
+    "group": "halogen",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Krypton",
     "abbrv": "Kr",
     "protons": 36,
-    "group": "noble-gas"
+    "group": "noble-gas",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Rubidium",
     "abbrv": "Rb",
     "protons": 37,
-    "group": "alkali-metal"
+    "group": "alkali-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Strontium",
     "abbrv": "Sr",
     "protons": 38,
-    "group": "alkaline-earth-metal"
+    "group": "alkaline-earth-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Yttrium",
     "abbrv": "Y",
     "protons": 39,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   },
   {
     "name": "Zirconium",
     "abbrv": "Zr",
     "protons": 40,
-    "group": "transition-metal"
+    "group": "transition-metal",
+    "desc": "Test description for Lithium."
   }
 ]

@@ -11,9 +11,19 @@ html,body{
   font-family: 'Exo', sans-serif;
 }
 
-.modal {
+#modalL {
   font-family: sans-serif !important;
   color: black;
+}
+
+#modalS {
+  font-family: sans-serif !important;
+  color: black;
+}
+
+#instructionsModal {
+  color: black;
+  padding-left: 10px;
 }
 
 .elementButtons {

@@ -21,12 +21,18 @@
   <div class="periodic-table-wrapper">
     <ol class="periodic-table">
       {{#each elementsDictionary}}
-        <ul data-element-group={{this.group}} data-element-id={{this.abbrv}} class="periodic-table-element">
+        <ul data-element-group={{this.group}} data-element-id={{this.abbrv}} data-target={{this.abbrv}} class="periodic-table-element modal-trigger">
           <h5>{{this.abbrv}}</h5>
         </ul>
 
-        {{!-- {{#each unlockedElementsInTable}}
-        {{/each}} --}}
+        <div id={{this.abbrv}} class="modal">
+          <h2> {{this.name}} </h2>
+          <h3> {{this.desc}} </h3>
+          <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+          </div>
+        </div>
+
       {{/each}}
       <ul style="grid-row: 5; grid-column: 5; width: 4.167vw; height: 4.167vw; text-align: center; padding-top: 10px; padding-left: 10px;">More elements coming soon...</ul>
     </ol>
@@ -37,13 +43,44 @@
     // If not unlocked, then add a class that greys them out.
     // If unlocked, then do nothing.
 
-    for (let iterator = 0; iterator < unlockedElementsInTable.length; iterator++) {
+    /* for (let iterator = 0; iterator < unlockedElementsInTable.length; iterator++) {
       if (unlockedElementsInTable[iterator] in elementsDictionary) {
         break;
       } else {
         // Find the unlockedElementsInTable[iterator] element and add the "isLocked" class
         console.log("HELLO WORLD!");
       }
-    }
+    } */
+
+    $(function() {
+
+    })
   </script>
 </main>
+
+
+{{!-- <div id="H" class="modal">
+  <h2> Hydrogen </h2>
+  <h3></h3>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>
+<div id="He" class="modal">
+  <h2> Helium </h2>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>
+<div id="Li" class="modal">
+  <h2> Lithium </h2>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div>
+<div id="Be" class="modal">
+  <h2> Beryllium </h2>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+  </div>
+</div> --}}
