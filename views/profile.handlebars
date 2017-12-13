@@ -20,7 +20,8 @@
 
   <div class="periodic-table-wrapper">
     <ol class="periodic-table">
-      {{#each elementsDictionary}}
+      {{!-- {{#each elementsDictionary}} --}}
+      {{#each unlockedElementsInTable}}
         <ul data-element-group={{this.group}} data-element-id={{this.abbrv}} data-target={{this.abbrv}} class="periodic-table-element modal-trigger">
           <h5>{{this.abbrv}}</h5>
         </ul>

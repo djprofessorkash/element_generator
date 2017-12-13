@@ -27,7 +27,7 @@ html,body{
 }
 
 #elementalModal {
-  color: black;
+  background-color: rgba(43, 43, 43, 0.9);
 }
 
 .elementButtons {
