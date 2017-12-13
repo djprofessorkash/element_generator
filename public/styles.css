@@ -27,7 +27,7 @@ html,body{
 }
 
 .elementalModal {
-  padding: 2em;  
+  padding: 2em;
   color: rgba(43, 43, 43, 0.9);
 }
 
@@ -69,6 +69,7 @@ html,body{
 .lock_unselected {
   background-color: #cccccc;
   color: #8c8c8c;
+  opacity:0.5;
 }
 
 .pulse-button {
