@@ -31,15 +31,23 @@ html,body{
   color: rgba(43, 43, 43, 0.9);
 }
 
+.wrapper{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
 .elementButtons {
   margin-top: 60px;
 }
 
-.container {
+/*
+.fuse_btn_container {
   width: 200px;
   height: 100%;
   margin: 0 auto 0;
 }
+*/
 
 /* unlocked elements buttons */
 .unlocked_element{
@@ -52,8 +60,9 @@ html,body{
   font-size:1.5vw;
   background-color:#4571e0;
   z-index:4;
-  margin-right:1vw;
+/*  margin-right:1vw;*/
   box-sizing:border-box;
+  position:absolute;
 
 }
 
@@ -73,9 +82,13 @@ html,body{
 }
 
 .pulse-button {
-  margin-top: 100px;
+/*  margin-top: 100px;*/
   width: 200px;
   height: 200px;
+    position:absolute;
+    top: calc(50vh - 100px);
+    left: calc(50vw - 100px);
+    
   border: none;
   box-shadow: 0 0 0 0 rgba(255, 216, 76, 0.7);
   border-radius: 50%;
@@ -91,6 +104,7 @@ html,body{
   -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
   animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
 }
+
 .pulse-button:hover
 {
   -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;

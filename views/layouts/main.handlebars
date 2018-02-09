@@ -45,6 +45,48 @@
         $(".modal").modal();
         $("select").material_select();
         // $('#instructionsModal').modal('open');
+          
+        //arrange in circle:
+          
+//    function create_elements() {
+//        $('.unlocked_element').remove();
+//    var container = $('.wrapper');
+//    for(var i = 0; i < element_data.length; i++) {
+//        $('<div/>', {
+//            'class': 'unlocked_element',
+//            'value': element_data[i].protons,
+//            'text': element_data[i].abbrv 
+//        }).appendTo(container);
+//    }
+//}
+
+function distribute_elements() {
+    var radius = 250;
+    var all_elements = $('.unlocked_element'), container = $('.wrapper'),
+        width = container.width(), height = container.height(),
+        angle = 0, step = (2*Math.PI) / all_elements.length;
+    all_elements.each(function() {
+        var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
+        var y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
+        if(window.console) {
+            console.log($(this).text(), x, y);
+        }
+        $(this).css({
+            left: x + 'px',
+            top: y + 'px'
+        });
+        angle += step;
+    });
+}
+
+$('input').change(function() {
+//    create_elements();
+    distribute_elements();
+});
+
+//create_elements();
+distribute_elements();
+   
 
         // ================== FUNCTION TO CHECK SELECTED ELEMENT ==================
         function getChecked() {
