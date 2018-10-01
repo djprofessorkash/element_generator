@@ -1,5 +1,5 @@
 # Element Generator (NUCLEUS)
-Education Simulator for Basic Chemistry
+An Education Simulator for Basic Chemistry
 
 <h1 align="center">
   <a href="https://github.com/AakashSudhakar/element_generator">
